@@ -1,0 +1,9 @@
+{
+  "name": "@biomapper-sdk/examples-simple-sybil-resistant-airdrop",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@biomapper-sdk/core": "workspace:^",
+    "@openzeppelin/contracts": "^5.0.1"
+  }
+}

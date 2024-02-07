@@ -5,9 +5,18 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@biomapper-sdk/core@workspace:packages/core":
+"@biomapper-sdk/core@workspace:^, @biomapper-sdk/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@biomapper-sdk/core@workspace:packages/core"
+  languageName: unknown
+  linkType: soft
+
+"@biomapper-sdk/examples-simple-sybil-resistant-airdrop@workspace:examples/simple-sybil-resistant-airdrop":
+  version: 0.0.0-use.local
+  resolution: "@biomapper-sdk/examples-simple-sybil-resistant-airdrop@workspace:examples/simple-sybil-resistant-airdrop"
+  dependencies:
+    "@biomapper-sdk/core": "workspace:^"
+    "@openzeppelin/contracts": "npm:^5.0.1"
   languageName: unknown
   linkType: soft
 
@@ -16,3 +25,10 @@ __metadata:
   resolution: "@biomapper-sdk/root@workspace:."
   languageName: unknown
   linkType: soft
+
+"@openzeppelin/contracts@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "@openzeppelin/contracts@npm:5.0.1"
+  checksum: 10c0/f3fcd60c851421d22b94e89850b1de5bb423c7caa77b570a458c3f918da8aca639ce9cf1f789eb91e0301c8a042e10d0e6215c346f66e29a2063e04787efca6b
+  languageName: node
+  linkType: hard
