@@ -6,5 +6,12 @@
   "workspaces": [
     "packages/*",
     "examples/*"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  },
+  "scripts": {
+    "prettier:check": "prettier --list-different .",
+    "prettier:fix": "prettier --write ."
+  }
 }

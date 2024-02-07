@@ -1,0 +1,7 @@
+{
+  "name": "@biomapper-sdk/tsconfig",
+  "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,10 @@
+.yarn
+node_modules
+
+# Other generated stuff
+**/*/build
+**/*/build
+
+# Hardhat files
+**/*/cache
+**/*/artifacts
