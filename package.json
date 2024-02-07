@@ -1,6 +1,9 @@
 {
-  "name": "biomapper-sdk",
+  "name": "@biomapper-sdk/root",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "yarn@4.1.0"
+  "packageManager": "yarn@4.1.0",
+  "workspaces": [
+    "packages/*"
+  ]
 }
