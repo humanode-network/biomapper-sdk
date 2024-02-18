@@ -4,10 +4,7 @@
   "private": true,
   "type": "module",
   "files": [
-    "interfaces/*.sol",
-    "libraries/*.sol",
-    "artifacts/interfaces/**/*.json",
-    "!artifacts/interfaces/**/*.dbg.json"
+    "interfaces/*.sol"
   ],
   "scripts": {
     "hardhat:compile": "NODE_OPTIONS='--experimental-loader ts-node/esm/transpile-only --no-warnings=ExperimentalWarning' hardhat compile",
