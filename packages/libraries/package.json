@@ -1,0 +1,30 @@
+{
+  "name": "@biomapper-sdk/libraries",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "files": [
+    "libraries/*.sol"
+  ],
+  "scripts": {
+    "hardhat:compile": "NODE_OPTIONS='--experimental-loader ts-node/esm/transpile-only --no-warnings=ExperimentalWarning' hardhat compile",
+    "hardhat:test": "NODE_OPTIONS='--experimental-loader ts-node/esm/transpile-only --no-warnings=ExperimentalWarning' hardhat test --typecheck",
+    "solhint:check": "solhint '**/*.sol' --max-warnings 0",
+    "solhint:fix": "solhint --fix '**/*.sol'"
+  },
+  "devDependencies": {
+    "@biomapper-sdk/core": "workspace:^",
+    "@biomapper-sdk/tsconfig": "workspace:^",
+    "@nomicfoundation/hardhat-toolbox-viem": "^2.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.4",
+    "@nomicfoundation/hardhat-viem": "^1.0.3",
+    "chai": "^4.4.1",
+    "hardhat": "^2.19.5",
+    "hardhat-gas-reporter": "^1.0.10",
+    "solhint": "^4.1.1",
+    "solidity-coverage": "^0.8.6",
+    "ts-node": "^10.9.2",
+    "typescript": "5.3.3",
+    "viem": "^2.7.6"
+  }
+}
