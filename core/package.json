@@ -1,0 +1,16 @@
+{
+  "name": "@biomapper-sdk/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "files": [
+    "*.sol"
+  ],
+  "scripts": {
+    "solhint:check": "solhint '**/*.sol' --max-warnings 0",
+    "solhint:fix": "solhint --fix '**/*.sol'"
+  },
+  "devDependencies": {
+    "solhint": "^4.1.1"
+  }
+}
