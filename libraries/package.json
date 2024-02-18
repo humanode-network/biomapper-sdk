@@ -6,12 +6,6 @@
   "files": [
     "libraries/*.sol"
   ],
-  "scripts": {
-    "hardhat:compile": "NODE_OPTIONS='--experimental-loader ts-node/esm/transpile-only --no-warnings=ExperimentalWarning' hardhat compile",
-    "hardhat:test": "NODE_OPTIONS='--experimental-loader ts-node/esm/transpile-only --no-warnings=ExperimentalWarning' hardhat test --typecheck",
-    "solhint:check": "solhint '**/*.sol' --max-warnings 0",
-    "solhint:fix": "solhint --fix '**/*.sol'"
-  },
   "devDependencies": {
     "@biomapper-sdk/core": "workspace:^",
     "@biomapper-sdk/tsconfig": "workspace:^",

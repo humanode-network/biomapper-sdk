@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.20;
 
-import {IBiomapperLogRead} from "@biomapper-sdk/core/interfaces/IBiomapperLogRead.sol";
+import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
 
 library BiomapperLogLib {
     function isUnique(
@@ -16,6 +16,37 @@ library BiomapperLogLib {
         });
 
         return biomappedAt != 0;
+    }
+
+    function countBiomappedBlocks(
+        IBiomapperLogRead biomapperLog,
+        address who,
+        uint256 fromBlock
+    ) public view returns (uint256 blocks) {
+        uint256 generation = biomapperLog.generationsHead();
+        uint256 to = block.number;
+        uint256 from;
+
+        while (true) {
+            from = biomapperLog.generationBiomapping({
+                account: who,
+                generationPtr: generation
+            });
+
+            if (from < fromBlock) from = fromBlock;
+
+            assert(to > from);
+
+            blocks += to - from;
+
+            if (from <= fromBlock) break;
+
+            to = generation;
+
+            generation = biomapperLog
+                .generationsListItem({ptr: generation})
+                .prevPtr;
+        }
     }
 
     function firstBiomappedGeneration(
