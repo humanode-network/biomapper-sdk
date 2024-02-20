@@ -6,7 +6,8 @@
   "workspaces": [
     "core",
     "libraries",
-    "examples/*"
+    "examples/*",
+    "tests/hardhat"
   ],
   "scripts": {
     "prettier:check": "prettier --list-different .",

@@ -14,6 +14,6 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "solidity.compileUsingRemoteVersion": "v0.8.20+commit.a1b79de6",
   "package-json-upgrade.ignoreVersions": {
-    "chai": ">4"
+    "@types/node": ">20"
   }
 }
