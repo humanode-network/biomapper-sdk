@@ -1,4 +1,0 @@
-{
-  "extends": "@biomapper-sdk/tsconfig/hardhat.json",
-  "files": ["./hardhat.config.cts"]
-}

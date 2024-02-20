@@ -1,10 +1,10 @@
 # Yarn berry
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+/.yarn/*
+!/.yarn/patches
+!/.yarn/plugins
+!/.yarn/releases
+!/.yarn/sdks
+!/.yarn/versions
 
 # Misc
 .DS_Store
@@ -16,4 +16,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # Dependencies
-node_modules
+/node_modules

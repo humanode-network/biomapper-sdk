@@ -8,11 +8,14 @@
     "libraries",
     "examples/*"
   ],
-  "devDependencies": {
-    "prettier": "^3.2.5"
-  },
   "scripts": {
     "prettier:check": "prettier --list-different .",
-    "prettier:fix": "prettier --write ."
+    "prettier:fix": "prettier --write .",
+    "solhint:check": "solhint '**/*.sol' --max-warnings 0",
+    "solhint:fix": "solhint --fix '**/*.sol'"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "solhint": "^4.1.1"
   }
 }
