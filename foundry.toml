@@ -1,2 +1,7 @@
 [profile.default]
+src = "."
+lib = []
 remappings = ["@biomapper-sdk/=./"]
+
+[profile.default.doc]
+ignore = ["node_modules/**/*", "examples/**/*"]
