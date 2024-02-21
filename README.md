@@ -1,3 +1,7 @@
+![Biomapper SDK][logo]
+
+[logo]: https://github.com/humanode-network/biomapper-sdk/assets/265507/2afffc2e-85c2-4410-9866-b3956c7e0baf
+
 # Humanode Biomapper SDK
 
 This is the SDK for the Humanode Biomapper - a biometrics-based sybil-resistance
