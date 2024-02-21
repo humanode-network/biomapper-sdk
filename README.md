@@ -7,9 +7,9 @@
 This is the SDK for the Humanode Biomapper - a biometrics-based sybil-resistance
 utility for EVM smart contracts.
 
-Check out the [docs][1].
+To learn more about the Humanode Biomapper itself (and not this SDK) see the [docs][1].
 
-[1]: https://link.humanode.io/biomapper-docs
+[1]: https://link.humanode.io/docs/biomapper
 
 ## Usage
 
