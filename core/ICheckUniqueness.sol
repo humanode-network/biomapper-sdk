@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @dev Interface of `Biomapper` contract.
+/// @dev Interface for the `Biomapper` contract.
 /// @notice View the current biomapping state of a given account.
 interface ICheckUniqueness {
     /// @notice Determines the uniqueness status of a given address in the current biomapper generation.
