@@ -3,6 +3,10 @@ pragma solidity ^0.8.20;
 
 /// @dev Interface for the `Biomapper` contract.
 /// @notice View the current biomapping state of a given account.
+///
+/// #### Examples
+///
+/// See the {BiomapperExamples}.
 interface ICheckUniqueness {
     /// @notice Determines the uniqueness status of a given address in the current biomapper generation.
     /// @param queriedAddress The address to check for uniqueness.

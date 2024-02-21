@@ -7,43 +7,7 @@ pragma solidity ^0.8.20;
 ///
 /// #### Examples
 ///
-/// A loop through all generations.
-///
-/// ```solidity
-/// uint256 generation = BiomapperLog.generationsHead();
-///
-/// while (true) {
-/// 	// Do something with a generation.
-///
-///     generation = BiomapperLog
-///         .generationsListItem({ptr: generation})
-///         .prevPtr;
-///
-///     if (generation == 0) {
-///         // It was the oldest generation.
-///       break;
-///     }
-/// }
-/// ```
-///
-/// Generations could also be searched from oldest to current.
-///
-/// ```solidity
-/// uint256 generation = BiomapperLog.generationsTail();
-///
-/// while (true) {
-///     // Do something with a generation.
-///
-///     generation = BiomapperLog
-///         .generationsListItem({ptr: generation})
-///         .nextPtr;
-///
-///     if (generation == 0) {
-///         // It was the current generation.
-///         break;
-///     }
-/// }
-/// ```
+/// See the {BiomapperLogExamples}.
 interface IBiomapperLogRead {
     /// @notice Structure representing a biomapper generation.
     ///
@@ -109,17 +73,6 @@ interface IBiomapperLogRead {
     function generationsTail() external view returns (uint256);
 
     /// @notice Returns the generation struct for a given generation pointer.
-    ///
-    /// #### Examples
-    ///
-    /// Obtaining previous generation pointer:
-    ///
-    /// ```solidity
-    /// previousGeneration = BiomapperLog
-    ///     .generationsListItem({ptr: generation})
-    ///     .prevPtr;
-    /// ```
-    ///
     /// @param ptr The pointer of the requested generation.
     /// @return The {Generation} structure.
     function generationsListItem(
