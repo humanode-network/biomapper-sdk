@@ -11,7 +11,7 @@ To learn more about the Humanode Biomapper itself (and not this SDK) see the [do
 
 [1]: https://link.humanode.io/docs/biomapper
 
-## Usage
+## Installation
 
 ### With NPM/Yarn
 
@@ -50,3 +50,9 @@ import {ICheckUniqueness} from "biomapper-sdk/core/ICheckUniqueness.sol";
 import {IBiomapperLogRead} from "biomapper-sdk/core/IBiomapperLogRead.sol";
 import {BiomapperLogLib} from "biomapper-sdk/libraries/BiomapperLogLib.sol";
 ```
+
+## Usage
+
+See the [`usage`](usage) directory for the simple usage examples, and
+the [`examples`](examples) directory for a more complete use cases
+demonstration.
