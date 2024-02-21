@@ -1,0 +1,36 @@
+name: code
+
+on:
+  push:
+    branches:
+      - "**"
+      - "!gh-readonly-queue/**"
+  merge_group:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' && github.event_name != 'merge_group' }}
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  prettier:
+    name: prettier:check
+    runs-on: ubuntu-22.04
+    timeout-minutes: 50
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        timeout-minutes: 5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+
+      - run: yarn install --immutable
+
+      - run: yarn prettier:check
