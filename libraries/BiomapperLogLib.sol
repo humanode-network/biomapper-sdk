@@ -3,7 +3,13 @@ pragma solidity ^0.8.20;
 
 import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
 
+/// @notice A utility library for the `BiomapperLog` contract.
 library BiomapperLogLib {
+    /// @notice Determines the uniqueness status of a given address in the current biomapper generation.
+    /// The alternative way of using the `Biomapper` contract.
+    /// @param biomapperLog The `BiomapperLog` contract.
+    /// @param who The address to check for uniqueness.
+    /// @return A boolean value indicating whether the address is biomapped (true) or not (false).
     function isUnique(
         IBiomapperLogRead biomapperLog,
         address who
@@ -18,6 +24,11 @@ library BiomapperLogLib {
         return biomappedAt != 0;
     }
 
+    /// @notice Counts the number of blocks a user has been biomapped for.
+    /// @param biomapperLog The `BiomapperLog` contract.
+    /// @param who The address to count.
+    /// @param fromBlock The starting block number.
+    /// @return blocks The number of blocks the user has been biomapped for.
     function countBiomappedBlocks(
         IBiomapperLogRead biomapperLog,
         address who,
@@ -49,6 +60,10 @@ library BiomapperLogLib {
         }
     }
 
+    /// @notice Finds the first generation a user was biomapped in.
+    /// @param biomapperLog The `BiomapperLog` contract.
+    /// @param who The address to check.
+    /// @return The block number of the first biomapping for the user, or 0 if never biomapped.
     function firstBiomappedGeneration(
         IBiomapperLogRead biomapperLog,
         address who
@@ -65,6 +80,11 @@ library BiomapperLogLib {
                 .generationPtr;
     }
 
+    /// @notice Finds the block number of the oldest sequential biomapping for a user.
+    /// @param biomapperLog The `BiomapperLog` contract.
+    /// @param who The address of the user to check.
+    /// @return The block number of the oldest sequential biomapping for the user,
+    /// or 0 if not biomapped in the current generation.
     function firstSequentialBiomappedGeneration(
         IBiomapperLogRead biomapperLog,
         address who
