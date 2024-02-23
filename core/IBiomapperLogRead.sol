@@ -63,11 +63,11 @@ interface IBiomapperLogRead {
     ) external view returns (uint256);
 
     /// @notice Returns the block number in which the current generation began.
-    /// @return The block number in which the current generation began.
+    /// @return The block number in which the current generation began, 0 if no generations initialized.
     function generationsHead() external view returns (uint256);
 
     /// @notice Returns the block number in which the oldest generation began.
-    /// @return The block number in which the oldest generation began.
+    /// @return The block number in which the oldest generation began, 0 if no generations initialized.
     function generationsTail() external view returns (uint256);
 
     /// @notice Returns the generation struct for a given generation pointer.
