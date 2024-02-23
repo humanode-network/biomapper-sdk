@@ -9,28 +9,42 @@ pragma solidity ^0.8.20;
 ///
 /// See the [BiomapperLogExamples](/usage/BiomapperLogExamples.sol/contract.BiomapperLogExamples.html).
 interface IBiomapperLogRead {
-    /// @notice Structure representing a biomapper generation.
+    /// @notice Structure representing a biomapper generation as an element of a doubly linked list.
     ///
-    /// Pointer of {Generation} is a number of block that contains a 'generation change' transaction.
+    /// @notice Pointer of {Generation} is a number of block that contains a 'generation change' transaction.
+    ///
+    /// #### Fields
+    /// | Name | Type | Description |
+    /// | ---- | ---- | ----------- |
+    /// | generation | bytes32 | A salted hash of some deployment data. Deprecated, do not use. |
+    /// | prevPtr | uint256 | Block number of the previous generation. 0 for the oldest generation. |
+    /// | nextPtr | uint256 | Block number of the next generation. 0 for the current generation. |
     struct Generation {
-        /// @notice A salted hash of some deployment data.
+        /// A salted hash of some deployment data.
         /// Deprecated, do not use.
         bytes32 generation; // Deprecated field
-        /// @notice Block number of the previous generation.
+        /// Block number of the previous generation. 0 for the oldest generation.
         uint256 prevPtr;
-        /// @notice Block number of the next generation.
+        /// Block number of the next generation. 0 for the current generation.
         uint256 nextPtr;
     }
 
-    /// @notice Structure representing a biomapping.
+    /// @notice Structure representing a biomapping as an element of a doubly linked list.
     ///
-    /// Pointer of {Biomapping} is a number of block that contains a 'prove uniqueness' transaction.
+    /// @notice Pointer of {Biomapping} is a number of block that contains a 'prove uniqueness' transaction.
+    ///
+    /// #### Fields
+    /// | Name | Type | Description |
+    /// | ---- | ---- | ----------- |
+    /// | generationPtr | uint256 | Pointer to the generation that has this biomapping. |
+    /// | prevPtr | uint256 | Block number of the previous biomapping. 0 for the oldest biomapping. |
+    /// | nextPtr | uint256 | Block number of the next biomapping. 0 for the current biomapping. |
     struct Biomapping {
-        /// @notice Pointer to the generation that has this biomapping.
+        /// Pointer to the generation that has this biomapping.
         uint256 generationPtr;
-        /// @notice Block number of the previous biomapping.
+        /// Block number of the previous biomapping. 0 for the oldest biomapping.
         uint256 prevPtr;
-        /// @notice Block number of the next biomapping.
+        /// Block number of the next biomapping. 0 for the current biomapping.
         uint256 nextPtr;
     }
 
