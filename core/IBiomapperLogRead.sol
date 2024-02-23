@@ -7,7 +7,7 @@ pragma solidity ^0.8.20;
 ///
 /// #### Examples
 ///
-/// See the {BiomapperLogExamples}.
+/// See the [BiomapperLogExamples](/usage/BiomapperLogExamples.sol/contract.BiomapperLogExamples.html).
 interface IBiomapperLogRead {
     /// @notice Structure representing a biomapper generation.
     ///
