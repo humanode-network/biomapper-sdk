@@ -4,4 +4,6 @@ lib = []
 remappings = ["@biomapper-sdk/=./"]
 
 [profile.default.doc]
+title = "Humanode Biomapper SDK"
 ignore = ["node_modules/**/*", "examples/**/*"]
+book = "book.toml"
