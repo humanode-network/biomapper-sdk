@@ -53,6 +53,9 @@ import {BiomapperLogLib} from "biomapper-sdk/libraries/BiomapperLogLib.sol";
 
 ## Usage
 
-See the [`usage`](usage) directory for the simple usage examples, and
-the [`examples`](examples) directory for a more complete use cases
+See the [`usage`][usage] directory for the simple usage examples, and
+the [`examples`][examples] directory for a more complete use cases
 demonstration.
+
+[usage]: https://github.com/humanode-network/biomapper-sdk/tree/master/usage
+[examples]: https://github.com/humanode-network/biomapper-sdk/tree/master/examples
