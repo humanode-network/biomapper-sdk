@@ -44,12 +44,10 @@ interface IBiomapperLogRead {
     /// @return The block number in which the oldest biomap occurred, or 0 if the account was never biomapped.
     function biomappingsTail(address account) external view returns (uint256);
 
-    /// @notice Returns the biomapping struct for a given biomapping pointer and account address.
+    /// @notice Returns the {Biomapping} struct for a given biomapping pointer and account address.
     /// @param account The address of the requested account.
     /// @param ptr The biomapping pointer of the requested biomapping.
     /// @return The {Biomapping} structure.
-    ///
-    /// See {generationsListItem}.
     function biomappingsListItem(
         address account,
         uint256 ptr
