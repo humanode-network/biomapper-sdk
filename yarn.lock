@@ -39,6 +39,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@biomapper-sdk/events@workspace:events":
+  version: 0.0.0-use.local
+  resolution: "@biomapper-sdk/events@workspace:events"
+  languageName: unknown
+  linkType: soft
+
 "@biomapper-sdk/libraries@workspace:libraries":
   version: 0.0.0-use.local
   resolution: "@biomapper-sdk/libraries@workspace:libraries"
