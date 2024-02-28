@@ -50,6 +50,8 @@ contract MockBiomapper is
         _currentGeneration = block.number;
 
         _MOCK_BIOMAPPER_LOG.initGeneration();
+
+        emit IGenerationChangeEvents.GenerationChanged();
     }
 
     /// @notice Sender account is already mapped to a given biotoken.
