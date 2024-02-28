@@ -7,7 +7,7 @@ import {IGenerationChangeEvents} from "@biomapper-sdk/events/IGenerationChangeEv
 import {IProveUniquenessEvents} from "@biomapper-sdk/events/IProveUniquenessEvents.sol";
 
 /// @notice Mock contract implementing interfaces for Biomapper contract functionality.
-contract BiomapperMock is
+contract MockBiomapper is
     ICheckUniqueness,
     IGenerationChangeEvents,
     IProveUniquenessEvents
