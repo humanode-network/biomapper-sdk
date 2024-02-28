@@ -6,27 +6,27 @@ import {ICheckUniqueness} from "@biomapper-sdk/core/ICheckUniqueness.sol";
 import {IGenerationChangeEvents} from "@biomapper-sdk/events/IGenerationChangeEvents.sol";
 import {IProveUniquenessEvents} from "@biomapper-sdk/events/IProveUniquenessEvents.sol";
 
-/// @notice Mock contract implementing interfaces for biomapper functionality.
+/// @notice Mock contract implementing interfaces for Biomapper contract functionality.
 contract BiomapperMock is
     ICheckUniqueness,
     IGenerationChangeEvents,
     IProveUniquenessEvents
 {
-    // Mapping `account => true` for quick access to unique accounts.
+    /// @dev Mapping `account => true` for quick access to unique accounts.
     mapping(uint256 => mapping(address => bool)) private _unique;
-    // Mapping `biotoken => account` for storing biotokens.
+    /// @dev Mapping `biotoken => account` for storing biotokens.
     mapping(uint256 => mapping(bytes32 => address)) private _biotokens;
 
     uint256 private _currentGeneration;
 
-    // MockBiomapperLog contract instance for logging biomapper events.
+    /// @dev MockBiomapperLog contract instance for logging biomapper events.
     MockBiomapperLog private immutable _MOCK_BIOMAPPER_LOG;
 
     constructor() {
         _MOCK_BIOMAPPER_LOG = new MockBiomapperLog();
     }
 
-    /// @dev Returns the address of the MockBiomapperLog contract instance.
+    /// @notice Returns the address of the MockBiomapperLog contract instance.
     function getMockBiomapperLogAddress()
         public
         view
@@ -35,10 +35,12 @@ contract BiomapperMock is
         return address(_MOCK_BIOMAPPER_LOG);
     }
 
+    /// @inheritdoc ICheckUniqueness
     function isUnique(address queriedAddress) external view returns (bool) {
         return _unique[_currentGeneration][queriedAddress];
     }
 
+    /// @notice Initializes a new generation.
     function initGeneration() external {
         require(
             _currentGeneration != block.number,
@@ -50,18 +52,21 @@ contract BiomapperMock is
         _MOCK_BIOMAPPER_LOG.initGeneration();
     }
 
-    // Sender account is already mapped to a given biotoken.
-    // No further actions required.
+    /// @notice Sender account is already mapped to a given biotoken.
+    /// No further actions required.
     error BiomappingAlreadyExists();
 
-    // Sender account is already mapped to another biotoken.
-    // User can try again using another account.
+    /// @notice Sender account is already mapped to another biotoken.
+    /// User can try again using another account.
     error AccountHasAnotherBiotokenAttached();
 
-    // Given biotoken is already mapped to `anotherAccount`.
-    // User can use another biotoken with this account.
+    /// @notice Given biotoken is already mapped to `anotherAccount`.
+    /// User can use another biotoken with this account.
     error BiotokenAlreadyMappedToAnotherAccount(address anotherAccount);
 
+    /// @notice Creates a new biomapping for the specified account.
+    /// @param account The address of the account to biomap.
+    /// @param biotoken The biotoken to map to the account.
     function biomap(address account, bytes32 biotoken) external {
         bool isSenderAlreadyMapped = _unique[_currentGeneration][account];
         if (isSenderAlreadyMapped) {
