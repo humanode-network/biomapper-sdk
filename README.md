@@ -15,16 +15,16 @@ To learn more about the Humanode Biomapper itself (and not this SDK) see the [do
 
 ### With NPM/Yarn
 
-Install the dependency:
+Install the packages:
 
 ```shell
-npm install --save @biomapper-sdk/core @biomapper-sdk/libraries
+npm install --save @biomapper-sdk/core @biomapper-sdk/libraries @biomapper-sdk/events
 ```
 
 or with yarn:
 
 ```shell
-yarn add @biomapper-sdk/core @biomapper-sdk/libraries
+yarn add @biomapper-sdk/core @biomapper-sdk/libraries @biomapper-sdk/events
 ```
 
 Import the dependencies from the `@biomapper-sdk` like this:
