@@ -34,3 +34,22 @@ jobs:
       - run: yarn install --immutable
 
       - run: yarn prettier:check
+
+  tests-hardhat:
+    name: tests / hardhat
+    runs-on: ubuntu-22.04
+    timeout-minutes: 50
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        timeout-minutes: 5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+
+      - run: yarn install --immutable
+
+      - run: cd tests/hardhat && yarn test
