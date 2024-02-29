@@ -6,3 +6,5 @@ import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
 import {BiomapperLogLib} from "@biomapper-sdk/libraries/BiomapperLogLib.sol";
 import {IGenerationChangeEvents} from "@biomapper-sdk/events/IGenerationChangeEvents.sol";
 import {IProveUniquenessEvents} from "@biomapper-sdk/events/IProveUniquenessEvents.sol";
+import {MockBiomapper} from "@biomapper-sdk/mock/MockBiomapper.sol";
+import {MockBiomapperLog} from "@biomapper-sdk/mock/MockBiomapperLog.sol";
