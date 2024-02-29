@@ -61,7 +61,7 @@ contract MockBiomapperLog is IBiomapperLogRead, IMockBiomapperLogWrite {
     }
 
     /// @inheritdoc IMockBiomapperLogWrite
-    function initGeneration() external {
+    function initGeneration(bytes32 generation) external {
         uint256 prevPtr = generationsHead;
         require(
             prevPtr != block.number,
@@ -70,6 +70,7 @@ contract MockBiomapperLog is IBiomapperLogRead, IMockBiomapperLogWrite {
 
         Generation storage newGeneration = generationsList[block.number];
 
+        newGeneration.generation = generation;
         newGeneration.prevPtr = prevPtr;
 
         generationsHead = block.number;

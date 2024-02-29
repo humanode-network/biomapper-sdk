@@ -34,7 +34,7 @@ contract MockBiomapper is
 
     constructor() {
         _MOCK_BIOMAPPER_LOG = new MockBiomapperLog();
-        _MOCK_BIOMAPPER_LOG.initGeneration();
+        _MOCK_BIOMAPPER_LOG.initGeneration(0);
     }
 
     /// @notice Returns the address of the MockBiomapperLog contract instance.
@@ -60,7 +60,7 @@ contract MockBiomapper is
 
         _currentGeneration = block.number;
 
-        _MOCK_BIOMAPPER_LOG.initGeneration();
+        _MOCK_BIOMAPPER_LOG.initGeneration(0);
 
         emit IGenerationChangeEvents.GenerationChanged();
     }

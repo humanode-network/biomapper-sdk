@@ -5,7 +5,8 @@ pragma solidity ^0.8.20;
 /// @notice Mock access for writing biomapper log.
 interface IMockBiomapperLogWrite {
     /// @notice Initializes a new generation.
-    function initGeneration() external;
+    /// @param generation Arbitrarty bytes to represent the generation.
+    function initGeneration(bytes32 generation) external;
 
     /// @notice Creates a new biomapping for the specified account.
     /// @param account The address of the account to biomap.
