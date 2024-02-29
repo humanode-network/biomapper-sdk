@@ -1,4 +1,4 @@
 {
-  "recommendations": ["juanblanco.solidity", "esbenp.prettier-vscode"],
-  "unwantedRecommendations": ["NomicFoundation.hardhat-solidity"]
+  "recommendations": ["NomicFoundation.hardhat-solidity", "esbenp.prettier-vscode"],
+  "unwantedRecommendations": ["juanblanco.solidity"]
 }
