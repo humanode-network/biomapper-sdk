@@ -6,7 +6,15 @@ import {ICheckUniqueness} from "@biomapper-sdk/core/ICheckUniqueness.sol";
 import {IGenerationChangeEvents} from "@biomapper-sdk/events/IGenerationChangeEvents.sol";
 import {IProveUniquenessEvents} from "@biomapper-sdk/events/IProveUniquenessEvents.sol";
 
-/// @notice Mock contract implementing interfaces for Biomapper contract functionality.
+/// @notice Mock contract implementing `Biomapper` contract interfaces.
+///
+/// @notice Use this contract is your tests and development stages to emulate
+/// the behaviour of the `Biomapper` contract.
+///
+/// @notice When created, the `MockBiomapper` contract is empty.
+/// Use the `biomap` and `initGeneration` calls to drive the mock state
+/// as needed. Use `getMockBiomapperLogAddress` to obtain the address of
+/// the contract that implements the `BiomapperLog` interfaces.
 contract MockBiomapper is
     ICheckUniqueness,
     IGenerationChangeEvents,

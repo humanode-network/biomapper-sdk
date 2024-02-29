@@ -3,7 +3,13 @@ pragma solidity ^0.8.20;
 
 import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
 
-/// @notice Mock contract implementing IBiomapperLogRead interface for testing purposes.
+/// @notice Mock contract implementing `BiomapperLog` contract interfaces.
+///
+/// @notice It is constructed as part of the `MockBiomapper` and is not
+/// intended to be created alone.
+/// The interactions with the corresponding `MockBiomapper` will drive
+/// the `MockBiomapperLog`  state accordingly, so there is no need
+/// to separately control the `MockBiomapperLog` state.
 contract MockBiomapperLog is IBiomapperLogRead {
     uint256 public generationsHead;
     uint256 public generationsTail;
