@@ -39,7 +39,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@biomapper-sdk/events@workspace:events":
+"@biomapper-sdk/events@workspace:^, @biomapper-sdk/events@workspace:events":
   version: 0.0.0-use.local
   resolution: "@biomapper-sdk/events@workspace:events"
   languageName: unknown
@@ -50,6 +50,15 @@ __metadata:
   resolution: "@biomapper-sdk/libraries@workspace:libraries"
   dependencies:
     "@biomapper-sdk/core": "workspace:^"
+  languageName: unknown
+  linkType: soft
+
+"@biomapper-sdk/mock@workspace:mock":
+  version: 0.0.0-use.local
+  resolution: "@biomapper-sdk/mock@workspace:mock"
+  dependencies:
+    "@biomapper-sdk/core": "workspace:^"
+    "@biomapper-sdk/events": "workspace:^"
   languageName: unknown
   linkType: soft
 
