@@ -24,6 +24,7 @@ contract MockBiomapper is
 
     constructor() {
         _MOCK_BIOMAPPER_LOG = new MockBiomapperLog();
+        _MOCK_BIOMAPPER_LOG.initGeneration();
     }
 
     /// @notice Returns the address of the MockBiomapperLog contract instance.
