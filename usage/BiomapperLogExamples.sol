@@ -19,6 +19,8 @@ contract BiomapperLogExamples {
     address public immutable BIOMAPPER_LOG_CONTRACT_ADDRESS;
 
     /// @notice A loop through all generations.
+    /// @dev Go to the source code if you are viewing this though
+    /// the documentation.
     function example1() external view {
         // Activate the interface.
         IBiomapperLogRead biomapperLog = IBiomapperLogRead(
@@ -46,6 +48,8 @@ contract BiomapperLogExamples {
     }
 
     /// @notice Generations could also be searched from oldest to current.
+    /// @dev Go to the source code if you are viewing this though
+    /// the documentation.
     function example2() external view {
         // Activate the interface.
         IBiomapperLogRead biomapperLog = IBiomapperLogRead(

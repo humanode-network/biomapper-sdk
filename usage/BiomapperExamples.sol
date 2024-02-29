@@ -19,6 +19,8 @@ contract BiomapperExamples {
     address public immutable BIOMAPPER_CONTRACT_ADDRESS;
 
     /// @notice A simple uniqueness check.
+    /// @dev Go to the source code if you are viewing this though
+    /// the documentation.
     function example1() external view {
         address addressToCheck = 0x1111111111111111111111111111111111111111;
         bool isUnique = ICheckUniqueness(BIOMAPPER_CONTRACT_ADDRESS).isUnique(
