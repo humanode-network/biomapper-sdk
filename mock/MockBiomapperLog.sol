@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
+import {IMockBiomapperLogWrite} from "./IMockBiomapperLogWrite.sol";
 import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
 
 /// @notice Mock contract implementing `BiomapperLog` contract interfaces.
@@ -10,7 +11,7 @@ import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
 /// The interactions with the corresponding `MockBiomapper` will drive
 /// the `MockBiomapperLog`  state accordingly, so there is no need
 /// to separately control the `MockBiomapperLog` state.
-contract MockBiomapperLog is IBiomapperLogRead {
+contract MockBiomapperLog is IBiomapperLogRead, IMockBiomapperLogWrite {
     uint256 public generationsHead;
     uint256 public generationsTail;
     mapping(uint256 => Generation) public generationsList;
@@ -59,7 +60,7 @@ contract MockBiomapperLog is IBiomapperLogRead {
         return generationBiomappings[account][generationPtr];
     }
 
-    /// @notice Initializes a new generation.
+    /// @inheritdoc IMockBiomapperLogWrite
     function initGeneration() external {
         uint256 prevPtr = generationsHead;
         require(
@@ -80,8 +81,7 @@ contract MockBiomapperLog is IBiomapperLogRead {
         }
     }
 
-    /// @notice Creates a new biomapping for the specified account.
-    /// @param account The address of the account to biomap.
+    /// @inheritdoc IMockBiomapperLogWrite
     function biomap(address account) external {
         uint256 generationPtr = generationsHead;
         require(generationPtr != 0, "generation must be initialized");

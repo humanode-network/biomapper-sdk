@@ -2,6 +2,7 @@
 pragma solidity ^0.8.20;
 
 import {MockBiomapperLog} from "./MockBiomapperLog.sol";
+import {IMockBiomapperControl} from "./IMockBiomapperControl.sol";
 import {ICheckUniqueness} from "@biomapper-sdk/core/ICheckUniqueness.sol";
 import {IGenerationChangeEvents} from "@biomapper-sdk/events/IGenerationChangeEvents.sol";
 import {IProveUniquenessEvents} from "@biomapper-sdk/events/IProveUniquenessEvents.sol";
@@ -18,7 +19,8 @@ import {IProveUniquenessEvents} from "@biomapper-sdk/events/IProveUniquenessEven
 contract MockBiomapper is
     ICheckUniqueness,
     IGenerationChangeEvents,
-    IProveUniquenessEvents
+    IProveUniquenessEvents,
+    IMockBiomapperControl
 {
     /// @dev Mapping `account => true` for quick access to unique accounts.
     mapping(uint256 => mapping(address => bool)) private _unique;
@@ -49,7 +51,7 @@ contract MockBiomapper is
         return _unique[_currentGeneration][queriedAddress];
     }
 
-    /// @notice Initializes a new generation.
+    /// @inheritdoc IMockBiomapperControl
     function initGeneration() external {
         require(
             _currentGeneration != block.number,
@@ -75,9 +77,7 @@ contract MockBiomapper is
     /// User can use another biotoken with this account.
     error BiotokenAlreadyMappedToAnotherAccount(address anotherAccount);
 
-    /// @notice Creates a new biomapping for the specified account.
-    /// @param account The address of the account to biomap.
-    /// @param biotoken The biotoken to map to the account.
+    /// @inheritdoc IMockBiomapperControl
     function biomap(address account, bytes32 biotoken) external {
         bool isSenderAlreadyMapped = _unique[_currentGeneration][account];
         if (isSenderAlreadyMapped) {

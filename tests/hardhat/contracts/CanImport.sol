@@ -8,3 +8,5 @@ import {IGenerationChangeEvents} from "@biomapper-sdk/events/IGenerationChangeEv
 import {IProveUniquenessEvents} from "@biomapper-sdk/events/IProveUniquenessEvents.sol";
 import {MockBiomapper} from "@biomapper-sdk/mock/MockBiomapper.sol";
 import {MockBiomapperLog} from "@biomapper-sdk/mock/MockBiomapperLog.sol";
+import {IMockBiomapperControl} from "@biomapper-sdk/mock/IMockBiomapperControl.sol";
+import {IMockBiomapperLogWrite} from "@biomapper-sdk/mock/IMockBiomapperLogWrite.sol";
