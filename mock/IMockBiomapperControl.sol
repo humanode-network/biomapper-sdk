@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 /// @dev Interface for the `MockBiomapper` contract.
-/// @notice Mock controls.
+/// @notice Mock controls for the `MockBiomapper`.
 interface IMockBiomapperControl {
     /// @notice Initializes a new generation.
     function initGeneration() external;

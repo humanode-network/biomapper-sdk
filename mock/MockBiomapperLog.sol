@@ -6,11 +6,16 @@ import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
 
 /// @notice Mock contract implementing `BiomapperLog` contract interfaces.
 ///
-/// @notice It is constructed as part of the `MockBiomapper` and is not
-/// intended to be created alone.
-/// The interactions with the corresponding `MockBiomapper` will drive
-/// the `MockBiomapperLog`  state accordingly, so there is no need
-/// to separately control the `MockBiomapperLog` state.
+/// @notice It is constructed as part of the `MockBiomapper`, but it is also
+/// possible to construct and use the `MockBiomapperLog` independently.
+///
+/// @notice When used in conjunction with `MockBiomapper`, the interactions with
+/// the corresponding `MockBiomapper` will drive the `MockBiomapperLog` state
+/// accordingly, so there is no need to separately control
+/// the `MockBiomapperLog` state.
+///
+/// @notice When deployed independently, use the `IMockBiomapperLogWrite`
+/// interface to drive the state.
 contract MockBiomapperLog is IBiomapperLogRead, IMockBiomapperLogWrite {
     uint256 public generationsHead;
     uint256 public generationsTail;

@@ -13,9 +13,9 @@ import {IProveUniquenessEvents} from "@biomapper-sdk/events/IProveUniquenessEven
 /// the behaviour of the `Biomapper` contract.
 ///
 /// @notice When created, the `MockBiomapper` contract is empty.
-/// Use the `biomap` and `initGeneration` calls to drive the mock state
+/// Use the `IMockBiomapperControl` interface to drive the mock state
 /// as needed. Use `getMockBiomapperLogAddress` to obtain the address of
-/// the contract that implements the `BiomapperLog` interfaces.
+/// the corresponding `MockBiomapperLog` contract.
 contract MockBiomapper is
     ICheckUniqueness,
     IGenerationChangeEvents,
