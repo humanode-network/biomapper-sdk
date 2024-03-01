@@ -7,6 +7,7 @@
     "core",
     "libraries",
     "events",
+    "mock",
     "examples/*",
     "tests/hardhat"
   ],

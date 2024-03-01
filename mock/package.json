@@ -1,0 +1,13 @@
+{
+  "name": "@biomapper-sdk/mock",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "*.sol"
+  ],
+  "dependencies": {
+    "@biomapper-sdk/core": "workspace:^",
+    "@biomapper-sdk/events": "workspace:^"
+  }
+}
