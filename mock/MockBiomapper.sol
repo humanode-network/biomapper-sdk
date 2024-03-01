@@ -34,7 +34,7 @@ contract MockBiomapper is
 
     constructor() {
         _MOCK_BIOMAPPER_LOG = new MockBiomapperLog();
-        _MOCK_BIOMAPPER_LOG.initGeneration(0);
+        initGeneration();
     }
 
     /// @notice Returns the address of the MockBiomapperLog contract instance.
@@ -52,7 +52,7 @@ contract MockBiomapper is
     }
 
     /// @inheritdoc IMockBiomapperControl
-    function initGeneration() external {
+    function initGeneration() public {
         require(
             _currentGeneration != block.number,
             "initializing a generation twice in a single block is disallowed"
