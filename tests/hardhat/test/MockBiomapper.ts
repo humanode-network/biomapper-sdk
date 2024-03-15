@@ -1,10 +1,8 @@
-import {
-  time,
-  loadFixture,
-} from "@nomicfoundation/hardhat-toolbox-viem/network-helpers";
+import { loadFixture } from "@nomicfoundation/hardhat-toolbox-viem/network-helpers";
 import { expect } from "chai";
 import hre from "hardhat";
-import { getAddress, parseGwei } from "viem";
+
+import { fixRevertErrorIfNeeded } from "../utils/FixRevertError";
 
 const BIOTOKEN =
   "0x1234567890123456789012345678901234567890123456789012345678901234";
@@ -48,7 +46,7 @@ describe("MockBiomapper", () => {
 
   describe("IMockBiomapperLogWrite", () => {
     describe("#biomap", () => {
-      context("when unique data is supplied", () => {
+      context("when the message contains unique data", () => {
         it("succeds", async function () {
           const { biomapper, account0 } = await loadFixture(testFixture);
 
@@ -97,6 +95,102 @@ describe("MockBiomapper", () => {
           ).blockNumber;
 
           expect(actualBlockNumber).to.be.equal(expectedBlockNumber);
+        });
+      });
+
+      context("when the message contains non-unique address", () => {
+        it("fails", async function () {
+          const { biomapper, account0, account1, publicClient } =
+            await loadFixture(testFixture);
+
+          await expect(
+            biomapper.write.biomap([account0.account.address, BIOTOKEN]),
+          ).to.be.fulfilled;
+
+          let noErrorCatched = true;
+
+          try {
+            await biomapper.simulate.biomap([
+              account1.account.address,
+              BIOTOKEN,
+            ]);
+          } catch (err) {
+            noErrorCatched = false;
+
+            const error = fixRevertErrorIfNeeded(err);
+
+            expect(error.data?.errorName).to.equal(
+              "BiotokenAlreadyMappedToAnotherAccount",
+            );
+            expect(error.data?.args?.length).to.equal(1);
+
+            const actualAddress = error.data?.args?.at(0) as string;
+            expect(actualAddress.toLowerCase()).to.equal(
+              account0.account.address,
+            );
+          }
+
+          expect(noErrorCatched).to.be.false;
+        });
+      });
+
+      context("when the message contains non-unique biotoken", () => {
+        it("fails", async function () {
+          const { biomapper, account0, account1, publicClient } =
+            await loadFixture(testFixture);
+
+          await expect(
+            biomapper.write.biomap([account0.account.address, BIOTOKEN]),
+          ).to.be.fulfilled;
+
+          let noErrorCatched = true;
+
+          try {
+            await biomapper.simulate.biomap([
+              account0.account.address,
+              BIOTOKEN2,
+            ]);
+          } catch (err) {
+            noErrorCatched = false;
+
+            const error = fixRevertErrorIfNeeded(err);
+
+            expect(error.data?.errorName).to.equal(
+              "AccountHasAnotherBiotokenAttached",
+            );
+            expect(error.data?.args).to.be.undefined;
+          }
+
+          expect(noErrorCatched).to.be.false;
+        });
+      });
+
+      context("when this exact mapping already exists", () => {
+        it("fails", async function () {
+          const { biomapper, account0, account1, publicClient } =
+            await loadFixture(testFixture);
+
+          await expect(
+            biomapper.write.biomap([account0.account.address, BIOTOKEN]),
+          ).to.be.fulfilled;
+
+          let noErrorCatched = true;
+
+          try {
+            await biomapper.simulate.biomap([
+              account0.account.address,
+              BIOTOKEN,
+            ]);
+          } catch (err) {
+            noErrorCatched = false;
+
+            const error = fixRevertErrorIfNeeded(err);
+
+            expect(error.data?.errorName).to.equal("BiomappingAlreadyExists");
+            expect(error.data?.args).to.be.undefined;
+          }
+
+          expect(noErrorCatched).to.be.false;
         });
       });
     });
