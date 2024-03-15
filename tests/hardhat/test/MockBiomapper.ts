@@ -44,7 +44,7 @@ describe("MockBiomapper", () => {
     });
   });
 
-  describe("IMockBiomapperLogWrite", () => {
+  describe("IMockBiomapperControl", () => {
     describe("#biomap", () => {
       context("when the message contains unique data", () => {
         it("succeds", async function () {
@@ -100,7 +100,7 @@ describe("MockBiomapper", () => {
 
       context("when the message contains non-unique address", () => {
         it("fails", async function () {
-          const { biomapper, account0, account1, publicClient } =
+          const { biomapper, account0, account1 } =
             await loadFixture(testFixture);
 
           await expect(
@@ -136,8 +136,7 @@ describe("MockBiomapper", () => {
 
       context("when the message contains non-unique biotoken", () => {
         it("fails", async function () {
-          const { biomapper, account0, account1, publicClient } =
-            await loadFixture(testFixture);
+          const { biomapper, account0 } = await loadFixture(testFixture);
 
           await expect(
             biomapper.write.biomap([account0.account.address, BIOTOKEN]),
@@ -167,8 +166,7 @@ describe("MockBiomapper", () => {
 
       context("when this exact mapping already exists", () => {
         it("fails", async function () {
-          const { biomapper, account0, account1, publicClient } =
-            await loadFixture(testFixture);
+          const { biomapper, account0 } = await loadFixture(testFixture);
 
           await expect(
             biomapper.write.biomap([account0.account.address, BIOTOKEN]),
@@ -191,6 +189,45 @@ describe("MockBiomapper", () => {
           }
 
           expect(noErrorCatched).to.be.false;
+        });
+      });
+    });
+
+    describe("#initGeneration", () => {
+      context("on generation change", () => {
+        it("succeds", async function () {
+          const { biomapper } = await loadFixture(testFixture);
+
+          await expect(biomapper.write.initGeneration()).to.be.fulfilled;
+        });
+
+        it("sends the event", async function () {
+          const { biomapper, publicClient } = await loadFixture(testFixture);
+
+          const hash = await biomapper.write.initGeneration();
+          await publicClient.waitForTransactionReceipt({ hash });
+
+          const biomapperEvents = await biomapper.getEvents.GenerationChanged();
+
+          expect(biomapperEvents).to.have.lengthOf(1);
+        });
+
+        it("logs into MockBiomapperLog", async function () {
+          const { biomapper, publicClient, biomapperLog } =
+            await loadFixture(testFixture);
+
+          const hash = await biomapper.write.initGeneration();
+          await publicClient.waitForTransactionReceipt({ hash });
+
+          const actualBlockNumber = await biomapperLog.read.generationsHead();
+
+          const expectedBlockNumber = (
+            await publicClient.getTransactionReceipt({
+              hash,
+            })
+          ).blockNumber;
+
+          expect(actualBlockNumber).to.be.equal(expectedBlockNumber);
         });
       });
     });
