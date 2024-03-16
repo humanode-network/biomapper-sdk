@@ -2,7 +2,7 @@ import { loadFixture } from "@nomicfoundation/hardhat-toolbox-viem/network-helpe
 import { expect } from "chai";
 import hre from "hardhat";
 
-import { fixRevertErrorIfNeeded } from "../utils/FixRevertError";
+import { fixRevertError } from "../utils/revertError";
 
 const BIOTOKEN =
   "0x1234567890123456789012345678901234567890123456789012345678901234";
@@ -117,7 +117,7 @@ describe("MockBiomapper", () => {
           } catch (err) {
             noErrorCatched = false;
 
-            const error = fixRevertErrorIfNeeded(err);
+            const error = fixRevertError(err);
 
             expect(error.data?.errorName).to.equal(
               "BiotokenAlreadyMappedToAnotherAccount",
@@ -152,7 +152,7 @@ describe("MockBiomapper", () => {
           } catch (err) {
             noErrorCatched = false;
 
-            const error = fixRevertErrorIfNeeded(err);
+            const error = fixRevertError(err);
 
             expect(error.data?.errorName).to.equal(
               "AccountHasAnotherBiotokenAttached",
@@ -182,7 +182,7 @@ describe("MockBiomapper", () => {
           } catch (err) {
             noErrorCatched = false;
 
-            const error = fixRevertErrorIfNeeded(err);
+            const error = fixRevertError(err);
 
             expect(error.data?.errorName).to.equal("BiomappingAlreadyExists");
             expect(error.data?.args).to.be.undefined;

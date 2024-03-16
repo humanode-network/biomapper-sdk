@@ -20,8 +20,3 @@ export const fixRevertError = (err: unknown) => {
     message: shortMessage ?? message,
   });
 };
-
-export const fixRevertErrorIfNeeded = (err: unknown) => {
-  if (err instanceof ContractFunctionRevertedError) return err;
-  return fixRevertError(err);
-};
