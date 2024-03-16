@@ -254,6 +254,22 @@ describe("MockBiomapper", () => {
             .be.true;
         });
       });
+
+      context("after generation change", () => {
+        it("returns false", async () => {
+          const { biomapper, account0 } = await loadFixture(testFixture);
+
+          await biomapper.write.biomap([account0.account.address, BIOTOKEN]);
+
+          expect(await biomapper.read.isUnique([account0.account.address])).to
+            .be.true;
+
+          await biomapper.write.initGeneration();
+
+          expect(await biomapper.read.isUnique([account0.account.address])).to
+            .be.false;
+        });
+      });
     });
   });
 
