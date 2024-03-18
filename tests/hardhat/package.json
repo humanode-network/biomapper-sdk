@@ -4,8 +4,8 @@
     "test": "hardhat compile"
   },
   "devDependencies": {
-    "@types/node": "^20.11.25",
-    "hardhat": "^2.21.0",
+    "@types/node": "^20.11.28",
+    "hardhat": "^2.22.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.2"
   }

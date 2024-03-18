@@ -67,7 +67,7 @@ __metadata:
   resolution: "@biomapper-sdk/root@workspace:."
   dependencies:
     prettier: "npm:^3.2.5"
-    solhint: "npm:^4.1.1"
+    solhint: "npm:^4.5.2"
   languageName: unknown
   linkType: soft
 
@@ -365,82 +365,82 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomicfoundation/edr-darwin-arm64@npm:0.2.1":
-  version: 0.2.1
-  resolution: "@nomicfoundation/edr-darwin-arm64@npm:0.2.1"
+"@nomicfoundation/edr-darwin-arm64@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@nomicfoundation/edr-darwin-arm64@npm:0.3.2"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@nomicfoundation/edr-darwin-x64@npm:0.2.1":
-  version: 0.2.1
-  resolution: "@nomicfoundation/edr-darwin-x64@npm:0.2.1"
+"@nomicfoundation/edr-darwin-x64@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@nomicfoundation/edr-darwin-x64@npm:0.3.2"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@nomicfoundation/edr-linux-arm64-gnu@npm:0.2.1":
-  version: 0.2.1
-  resolution: "@nomicfoundation/edr-linux-arm64-gnu@npm:0.2.1"
+"@nomicfoundation/edr-linux-arm64-gnu@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@nomicfoundation/edr-linux-arm64-gnu@npm:0.3.2"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@nomicfoundation/edr-linux-arm64-musl@npm:0.2.1":
-  version: 0.2.1
-  resolution: "@nomicfoundation/edr-linux-arm64-musl@npm:0.2.1"
+"@nomicfoundation/edr-linux-arm64-musl@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@nomicfoundation/edr-linux-arm64-musl@npm:0.3.2"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@nomicfoundation/edr-linux-x64-gnu@npm:0.2.1":
-  version: 0.2.1
-  resolution: "@nomicfoundation/edr-linux-x64-gnu@npm:0.2.1"
+"@nomicfoundation/edr-linux-x64-gnu@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@nomicfoundation/edr-linux-x64-gnu@npm:0.3.2"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@nomicfoundation/edr-linux-x64-musl@npm:0.2.1":
-  version: 0.2.1
-  resolution: "@nomicfoundation/edr-linux-x64-musl@npm:0.2.1"
+"@nomicfoundation/edr-linux-x64-musl@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@nomicfoundation/edr-linux-x64-musl@npm:0.3.2"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@nomicfoundation/edr-win32-arm64-msvc@npm:0.2.1":
-  version: 0.2.1
-  resolution: "@nomicfoundation/edr-win32-arm64-msvc@npm:0.2.1"
+"@nomicfoundation/edr-win32-arm64-msvc@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@nomicfoundation/edr-win32-arm64-msvc@npm:0.3.2"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@nomicfoundation/edr-win32-ia32-msvc@npm:0.2.1":
-  version: 0.2.1
-  resolution: "@nomicfoundation/edr-win32-ia32-msvc@npm:0.2.1"
+"@nomicfoundation/edr-win32-ia32-msvc@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@nomicfoundation/edr-win32-ia32-msvc@npm:0.3.2"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@nomicfoundation/edr-win32-x64-msvc@npm:0.2.1":
-  version: 0.2.1
-  resolution: "@nomicfoundation/edr-win32-x64-msvc@npm:0.2.1"
+"@nomicfoundation/edr-win32-x64-msvc@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@nomicfoundation/edr-win32-x64-msvc@npm:0.3.2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@nomicfoundation/edr@npm:^0.2.0":
-  version: 0.2.1
-  resolution: "@nomicfoundation/edr@npm:0.2.1"
+"@nomicfoundation/edr@npm:^0.3.1":
+  version: 0.3.2
+  resolution: "@nomicfoundation/edr@npm:0.3.2"
   dependencies:
-    "@nomicfoundation/edr-darwin-arm64": "npm:0.2.1"
-    "@nomicfoundation/edr-darwin-x64": "npm:0.2.1"
-    "@nomicfoundation/edr-linux-arm64-gnu": "npm:0.2.1"
-    "@nomicfoundation/edr-linux-arm64-musl": "npm:0.2.1"
-    "@nomicfoundation/edr-linux-x64-gnu": "npm:0.2.1"
-    "@nomicfoundation/edr-linux-x64-musl": "npm:0.2.1"
-    "@nomicfoundation/edr-win32-arm64-msvc": "npm:0.2.1"
-    "@nomicfoundation/edr-win32-ia32-msvc": "npm:0.2.1"
-    "@nomicfoundation/edr-win32-x64-msvc": "npm:0.2.1"
+    "@nomicfoundation/edr-darwin-arm64": "npm:0.3.2"
+    "@nomicfoundation/edr-darwin-x64": "npm:0.3.2"
+    "@nomicfoundation/edr-linux-arm64-gnu": "npm:0.3.2"
+    "@nomicfoundation/edr-linux-arm64-musl": "npm:0.3.2"
+    "@nomicfoundation/edr-linux-x64-gnu": "npm:0.3.2"
+    "@nomicfoundation/edr-linux-x64-musl": "npm:0.3.2"
+    "@nomicfoundation/edr-win32-arm64-msvc": "npm:0.3.2"
+    "@nomicfoundation/edr-win32-ia32-msvc": "npm:0.3.2"
+    "@nomicfoundation/edr-win32-x64-msvc": "npm:0.3.2"
   dependenciesMeta:
     "@nomicfoundation/edr-darwin-arm64":
       optional: true
@@ -460,7 +460,7 @@ __metadata:
       optional: true
     "@nomicfoundation/edr-win32-x64-msvc":
       optional: true
-  checksum: 10c0/e8956284c14fb47662c92368ed17d871a24876a27c2e6525c99fabfe41cadb7d6f403889802216691ba41c38ee055c9cd59befc48f7b8018002ac2d09d2da29b
+  checksum: 10c0/f32a7e70cd145f4c5f2c98a7c50cb90e8ae505feb93049efb99761cc4d8b810300c2074ac6132a95fb2b3a4ec30d0a7e918f1ecf1697854f2938e2c5769a93c9
   languageName: node
   linkType: hard
 
@@ -796,12 +796,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidity-parser/parser@npm:^0.16.0":
-  version: 0.16.2
-  resolution: "@solidity-parser/parser@npm:0.16.2"
-  dependencies:
-    antlr4ts: "npm:^0.5.0-alpha.4"
-  checksum: 10c0/f0612b36f9a25def75188b44ce06d7cb286b4f843c54b3f0e8836bdd48438663aafea7839890d54f9ccdbc6fa2c1e1247cae2ab734713463e21e4bd656e526a7
+"@solidity-parser/parser@npm:^0.18.0":
+  version: 0.18.0
+  resolution: "@solidity-parser/parser@npm:0.18.0"
+  checksum: 10c0/c54b4c9ba10e1fd1cd45894040135a39b9bc527f0ac40bec732d8628b0c0c7cb7ec2b7e816b408d613ab1d71c04f9555111ccc83b6dbaed2e39ff4ef7d000e25
   languageName: node
   linkType: hard
 
@@ -883,12 +881,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.11.25":
-  version: 20.11.25
-  resolution: "@types/node@npm:20.11.25"
+"@types/node@npm:^20.11.28":
+  version: 20.11.28
+  resolution: "@types/node@npm:20.11.28"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10c0/3a65a0469309d503e572a3198d81c9248876236b1bcc0c9943e995cfa536df7ce9a9302638258984877420d1613167a8a82dbfb3a92197319fb79ebebf9abc83
+  checksum: 10c0/c599745243ed9ae4ca87460f18f88d02ab7424b545136aa504ed7a1d898e3a9bb133c927bcc7e861f79d7f6043ef917a173e780c8a001e129221e92f6d97b0ee
   languageName: node
   linkType: hard
 
@@ -1063,19 +1061,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"antlr4@npm:^4.11.0":
+"antlr4@npm:^4.13.1-patch-1":
   version: 4.13.1
   resolution: "antlr4@npm:4.13.1"
   checksum: 10c0/f92191677cf277e9c65806bcc40e0d844838203047e3d50cb2628cdda3052500dad0827f9308fc46283935786b0e6bc2986beb47cdd9b1ac88b5258d1b311294
-  languageName: node
-  linkType: hard
-
-"antlr4ts@npm:^0.5.0-alpha.4":
-  version: 0.5.0-dev
-  resolution: "antlr4ts@npm:0.5.0-dev"
-  dependencies:
-    source-map-support: "npm:^0.5.16"
-  checksum: 10c0/948d95d02497a5751105cc61e9931d03a9bf0566b33a28ea8f2c72484a47ec4c5148670e1a525bfbc0069b1b86ab820417ec3fad120081211ff55f542fb4a835
   languageName: node
   linkType: hard
 
@@ -2110,20 +2099,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hardhat-project@workspace:tests/hardhat"
   dependencies:
-    "@types/node": "npm:^20.11.25"
-    hardhat: "npm:^2.21.0"
+    "@types/node": "npm:^20.11.28"
+    hardhat: "npm:^2.22.1"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.4.2"
   languageName: unknown
   linkType: soft
 
-"hardhat@npm:^2.21.0":
-  version: 2.21.0
-  resolution: "hardhat@npm:2.21.0"
+"hardhat@npm:^2.22.1":
+  version: 2.22.1
+  resolution: "hardhat@npm:2.22.1"
   dependencies:
     "@ethersproject/abi": "npm:^5.1.2"
     "@metamask/eth-sig-util": "npm:^4.0.0"
-    "@nomicfoundation/edr": "npm:^0.2.0"
+    "@nomicfoundation/edr": "npm:^0.3.1"
     "@nomicfoundation/ethereumjs-common": "npm:4.0.4"
     "@nomicfoundation/ethereumjs-tx": "npm:5.0.4"
     "@nomicfoundation/ethereumjs-util": "npm:9.0.4"
@@ -2174,7 +2163,7 @@ __metadata:
       optional: true
   bin:
     hardhat: internal/cli/bootstrap.js
-  checksum: 10c0/d7c887d147ddbd0792b5e64abfd8200c233a1815b91af908f68b167067e109f9ab6e0892d130137a745c6139bae691cee62a8e993290d4fc0a2a733e5dcce324
+  checksum: 10c0/c4c91e1bf6fc6c8a07dbc25bb58bcd0a7ae05a7edceb978f7d023cbd47131f7845163829c72184031052c693a7c9bbfab13bc752f9c5f367d77ff6c871e05a29
   languageName: node
   linkType: hard
 
@@ -3628,13 +3617,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solhint@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "solhint@npm:4.1.1"
+"solhint@npm:^4.5.2":
+  version: 4.5.2
+  resolution: "solhint@npm:4.5.2"
   dependencies:
-    "@solidity-parser/parser": "npm:^0.16.0"
+    "@solidity-parser/parser": "npm:^0.18.0"
     ajv: "npm:^6.12.6"
-    antlr4: "npm:^4.11.0"
+    antlr4: "npm:^4.13.1-patch-1"
     ast-parents: "npm:^0.0.1"
     chalk: "npm:^4.1.2"
     commander: "npm:^10.0.0"
@@ -3656,11 +3645,11 @@ __metadata:
       optional: true
   bin:
     solhint: solhint.js
-  checksum: 10c0/b4bdb21bdc13f7ba3436d571a30cae6cb8dfb58ab1387df8bef25eeca25c8fbb3f625c49a5dddea41f8361aaeb4d8e2e9f986f580663ddd4574fd3d5de5f66c9
+  checksum: 10c0/a54cc8df54ed711ca6be783b9291eb9e838f518f236d4df05c6ef412ead6a21f4a5bf3bace62ca7d2ed69f4566d5289db4c8c93e0c5e23ac91401904e1f1f312
   languageName: node
   linkType: hard
 
-"source-map-support@npm:^0.5.13, source-map-support@npm:^0.5.16":
+"source-map-support@npm:^0.5.13":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:
