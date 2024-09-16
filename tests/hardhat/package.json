@@ -4,20 +4,20 @@
     "test": "hardhat test"
   },
   "devDependencies": {
-    "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
-    "@nomicfoundation/hardhat-toolbox-viem": "^2.0.0",
-    "@nomicfoundation/hardhat-verify": "^2.0.5",
-    "@nomicfoundation/hardhat-viem": "^2.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.11",
+    "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.10",
+    "@nomicfoundation/hardhat-viem": "^2.0.4",
     "@types/chai": "^4.3.12",
-    "@types/chai-as-promised": "^7.1.8",
-    "@types/mocha": "^10.0.6",
-    "@types/node": "^20.11.25",
-    "chai": "^4.4.1",
-    "hardhat": "^2.21.0",
-    "hardhat-gas-reporter": "^2.0.2",
-    "solidity-coverage": "^0.8.11",
+    "@types/chai-as-promised": "^8.0.0",
+    "@types/mocha": "^10.0.8",
+    "@types/node": "^22.5.5",
+    "chai": "^5.1.1",
+    "hardhat": "^2.22.10",
+    "hardhat-gas-reporter": "^2.2.1",
+    "solidity-coverage": "^0.8.13",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.2",
-    "viem": "^2.8.9"
+    "typescript": "^5.6.2",
+    "viem": "^2.21.7"
   }
 }
