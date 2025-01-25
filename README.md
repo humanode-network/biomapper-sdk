@@ -17,6 +17,16 @@ Find the up-to-date contract addresses [here][contract-addresses].
 
 [contract-addresses]: https://link.humanode.io/docs/biomapper/contract-addresses
 
+## Implementation Table
+
+| Contract           | Implemented Interfaces |
+| ------------------ | ---------------------- |
+| `Biomapper`        | [`ICheckUniqueness`]   |
+| `BiomapperLogRead` | [`IBiomapperLogRead`]  |
+
+[`IBiomapperLogRead`]: core/IBiomapperLogRead.sol/interface.IBiomapperLogRead.html
+[`ICheckUniqueness`]: core/ICheckUniqueness.sol/interface.ICheckUniqueness.html
+
 ## Installation
 
 ### With NPM/Yarn
