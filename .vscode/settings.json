@@ -2,7 +2,6 @@
   "solidity.linter": "solhint",
   "solidity.formatter": "prettier",
   "prettier.enable": true,
-  "prettier.prettierPath": "./node_modules/prettier",
   "[solidity]": {
     "editor.defaultFormatter": "NomicFoundation.hardhat-solidity",
     "editor.formatOnSave": true
