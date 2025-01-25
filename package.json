@@ -15,7 +15,8 @@
     "prettier:check": "prettier --list-different .",
     "prettier:fix": "prettier --write .",
     "solhint:check": "solhint '**/*.sol' --max-warnings 0",
-    "solhint:fix": "solhint --fix '**/*.sol'"
+    "solhint:fix": "solhint --fix '**/*.sol'",
+    "doc:build": "forge doc --build"
   },
   "devDependencies": {
     "prettier": "^3.2.5",
