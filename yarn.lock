@@ -1136,10 +1136,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mocha@npm:^10.0.6":
-  version: 10.0.6
-  resolution: "@types/mocha@npm:10.0.6"
-  checksum: 10c0/4526c9e88388f9e1004c6d3937c5488a39908810f26b927173c58d52b43057f3895627dc06538e96706e08b88158885f869ec6311f6b58fd72bdef715f26d6c3
+"@types/mocha@npm:^10.0.10":
+  version: 10.0.10
+  resolution: "@types/mocha@npm:10.0.10"
+  checksum: 10c0/d2b8c48138cde6923493e42b38e839695eb42edd04629abe480a8f34c0e3f50dd82a55832c2e8d2b6e6f9e4deb492d7d733e600fbbdd5a0ceccbcfc6844ff9d5
   languageName: node
   linkType: hard
 
@@ -2884,7 +2884,7 @@ __metadata:
     "@nomicfoundation/hardhat-viem": "npm:^2.0.0"
     "@types/chai": "npm:^4.3.12"
     "@types/chai-as-promised": "npm:^7.1.8"
-    "@types/mocha": "npm:^10.0.6"
+    "@types/mocha": "npm:^10.0.10"
     "@types/node": "npm:^20.11.25"
     chai: "npm:^4.4.1"
     hardhat: "npm:^2.21.0"
