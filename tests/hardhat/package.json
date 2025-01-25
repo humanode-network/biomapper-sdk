@@ -14,7 +14,7 @@
     "@types/node": "^22.10.10",
     "chai": "^4.5.0",
     "hardhat": "^2.22.18",
-    "hardhat-gas-reporter": "^2.2.2",
+    "hardhat-gas-reporter": "^1.0.10",
     "solidity-coverage": "^0.8.14",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3",
