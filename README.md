@@ -50,6 +50,7 @@ Import the dependencies from the `@biomapper-sdk` like this:
 ```solidity
 import {ICheckUniqueness} from "@biomapper-sdk/core/ICheckUniqueness.sol";
 import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
+import {IBridgedBiomapperRead} from "@biomapper-sdk/core/IBridgedBiomapperRead.sol";
 import {BiomapperLogLib} from "@biomapper-sdk/libraries/BiomapperLogLib.sol";
 ```
 
@@ -66,6 +67,7 @@ Import the dependencies from `biomapper-sdk` like this:
 ```solidity
 import {ICheckUniqueness} from "biomapper-sdk/core/ICheckUniqueness.sol";
 import {IBiomapperLogRead} from "biomapper-sdk/core/IBiomapperLogRead.sol";
+import {IBridgedBiomapperRead} from "biomapper-sdk/core/IBridgedBiomapperRead.sol";
 import {BiomapperLogLib} from "biomapper-sdk/libraries/BiomapperLogLib.sol";
 ```
 
