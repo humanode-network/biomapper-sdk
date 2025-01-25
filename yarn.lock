@@ -673,17 +673,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomicfoundation/hardhat-viem@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@nomicfoundation/hardhat-viem@npm:2.0.0"
+"@nomicfoundation/hardhat-viem@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "@nomicfoundation/hardhat-viem@npm:2.0.6"
   dependencies:
     abitype: "npm:^0.9.8"
     lodash.memoize: "npm:^4.1.2"
   peerDependencies:
     hardhat: ^2.17.0
-    typescript: ~5.0.0
     viem: ^2.7.6
-  checksum: 10c0/fb90ef82ffeb8f9cf018ba00c6bb69caf90ac26aa4021a7c8bac1632059208eef05bab68825a32ddfa96d61926c132640483ab9e99098be84d9614da22756113
+  checksum: 10c0/81542d78399a38b504b4ce4ff7a5d57db2708d6ed7eef0c23f482e063e180f605c5b54e309f4aebe292896c09687006c9d2c92f334da80d73dc48afe68ca950e
   languageName: node
   linkType: hard
 
@@ -2881,7 +2880,7 @@ __metadata:
     "@nomicfoundation/hardhat-network-helpers": "npm:^1.0.10"
     "@nomicfoundation/hardhat-toolbox-viem": "npm:^2.0.0"
     "@nomicfoundation/hardhat-verify": "npm:^2.0.5"
-    "@nomicfoundation/hardhat-viem": "npm:^2.0.0"
+    "@nomicfoundation/hardhat-viem": "npm:^2.0.6"
     "@types/chai": "npm:^4.3.12"
     "@types/chai-as-promised": "npm:^7.1.8"
     "@types/mocha": "npm:^10.0.6"
