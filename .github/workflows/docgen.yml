@@ -32,7 +32,6 @@ jobs:
       - uses: ./.github/actions/setup
         with:
           install-foundry: true
-          skip-yarn-install: true
 
       - run: forge doc --build
 
