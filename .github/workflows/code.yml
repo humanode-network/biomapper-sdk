@@ -27,11 +27,7 @@ jobs:
         uses: actions/checkout@v4
         timeout-minutes: 5
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .node-version
-
-      - run: yarn install --immutable
+      - uses: ./.github/actions/setup
 
       - run: yarn prettier:check
 
@@ -46,11 +42,7 @@ jobs:
         uses: actions/checkout@v4
         timeout-minutes: 5
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .node-version
-
-      - run: yarn install --immutable
+      - uses: ./.github/actions/setup
 
       - run: cd tests/hardhat && yarn test
 
@@ -65,9 +57,9 @@ jobs:
         uses: actions/checkout@v4
         timeout-minutes: 5
 
-      - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
+      - uses: ./.github/actions/setup
         with:
-          version: nightly-de33b6af53005037b463318d2628b5cfcaf39916
+          install-foundry: true
+          skip-yarn-install: true
 
       - run: forge doc --build
