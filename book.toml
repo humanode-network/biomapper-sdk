@@ -1,2 +1,6 @@
 [output.html]
 site-url = "/biomapper-sdk/"
+
+[preprocessor.extra-pages]
+before = ["links", "index"]
+command = "./add-pages.js"
