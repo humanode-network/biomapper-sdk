@@ -20,6 +20,7 @@
     "doc:dev": "forge doc --serve"
   },
   "devDependencies": {
+    "@openzeppelin/contracts": "^5.2.0",
     "prettier": "^3.2.5",
     "solhint": "^4.1.1"
   }

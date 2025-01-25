@@ -28,5 +28,5 @@ runs:
       uses: foundry-rs/foundry-toolchain@v1
       with:
         cache: false # do not cache RPC responses
-        version: nightly-de33b6af53005037b463318d2628b5cfcaf39916
+        version: nightly-b03dd220acb3d032c36fd68ee635de92d095ca04
       if: "inputs.install-foundry == 'true'"

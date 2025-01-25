@@ -20,3 +20,7 @@ yarn-error.log*
 
 # Docgen
 /docs
+
+# Forge
+/out
+/cache
