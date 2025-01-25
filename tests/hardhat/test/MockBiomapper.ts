@@ -47,7 +47,7 @@ describe("MockBiomapper", () => {
   describe("IMockBiomapperControl", () => {
     describe("#biomap", () => {
       context("when the message contains unique data", () => {
-        it("succeds", async function () {
+        it("succeeds", async function () {
           const { biomapper, account0 } = await loadFixture(testFixture);
 
           await expect(
@@ -107,7 +107,7 @@ describe("MockBiomapper", () => {
             biomapper.write.biomap([account0.account.address, BIOTOKEN]),
           ).to.be.fulfilled;
 
-          let noErrorCatched = true;
+          let noErrorCaught = true;
 
           try {
             await biomapper.simulate.biomap([
@@ -115,7 +115,7 @@ describe("MockBiomapper", () => {
               BIOTOKEN,
             ]);
           } catch (err) {
-            noErrorCatched = false;
+            noErrorCaught = false;
 
             const error = fixRevertError(err);
 
@@ -130,7 +130,7 @@ describe("MockBiomapper", () => {
             );
           }
 
-          expect(noErrorCatched).to.be.false;
+          expect(noErrorCaught).to.be.false;
         });
       });
 
@@ -142,7 +142,7 @@ describe("MockBiomapper", () => {
             biomapper.write.biomap([account0.account.address, BIOTOKEN]),
           ).to.be.fulfilled;
 
-          let noErrorCatched = true;
+          let noErrorCaught = true;
 
           try {
             await biomapper.simulate.biomap([
@@ -150,7 +150,7 @@ describe("MockBiomapper", () => {
               BIOTOKEN2,
             ]);
           } catch (err) {
-            noErrorCatched = false;
+            noErrorCaught = false;
 
             const error = fixRevertError(err);
 
@@ -160,7 +160,7 @@ describe("MockBiomapper", () => {
             expect(error.data?.args).to.be.undefined;
           }
 
-          expect(noErrorCatched).to.be.false;
+          expect(noErrorCaught).to.be.false;
         });
       });
 
@@ -172,7 +172,7 @@ describe("MockBiomapper", () => {
             biomapper.write.biomap([account0.account.address, BIOTOKEN]),
           ).to.be.fulfilled;
 
-          let noErrorCatched = true;
+          let noErrorCaught = true;
 
           try {
             await biomapper.simulate.biomap([
@@ -180,7 +180,7 @@ describe("MockBiomapper", () => {
               BIOTOKEN,
             ]);
           } catch (err) {
-            noErrorCatched = false;
+            noErrorCaught = false;
 
             const error = fixRevertError(err);
 
@@ -188,14 +188,14 @@ describe("MockBiomapper", () => {
             expect(error.data?.args).to.be.undefined;
           }
 
-          expect(noErrorCatched).to.be.false;
+          expect(noErrorCaught).to.be.false;
         });
       });
     });
 
     describe("#initGeneration", () => {
       context("on generation change", () => {
-        it("succeds", async function () {
+        it("succeeds", async function () {
           const { biomapper } = await loadFixture(testFixture);
 
           await expect(biomapper.write.initGeneration()).to.be.fulfilled;
