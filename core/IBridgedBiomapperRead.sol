@@ -25,16 +25,22 @@ interface IBridgedBiomapperRead {
     /// for each historical generations that occurred prior to the generation _being bridged_
     /// if the corresponding `Generation` is not present at the BridgingTxPoint chain.
     /// For historical generations `generationBridgingTxPointPtr` will be zero.
+    ///
+    /// #### Fields
+    /// | Name | Type | Description |
+    /// | ---- | ---- | ----------- |
+    /// | generationBridgingTxPointPtr | uint256 | The block number at the BridgingTxPoint chain when this generation was ported from Humanode chain to this chain. Zero if this generation was bridged as a non-target generation (historical) in the bridging tx. |
+    /// | prevPtr | uint256 | The block number at Humanode chain that points to the previous generation. Zero if this generation is the oldest generation at Humanode chain. |
+    /// | nextPtr | uint256 | The block number at Humanode chain that points to the next generation. Zero if this generation is the newest _known_ (bridged) generation at Humanode chain. |
     struct Generation {
-        /// @notice The block number at the BridgingTxPoint chain when this generation was ported
-        /// from Humanode chain to this chain.
-        /// @dev Zero if this generation was bridged as a non-target generation (historical) in the bridging tx.
+        /// The block number at the BridgingTxPoint chain when this generation was ported from Humanode chain to this chain.
+        /// Zero if this generation was bridged as a non-target generation (historical) in the bridging tx.
         uint256 generationBridgingTxPointPtr;
-        /// @notice The block number at Humanode chain that points to the previous generation.
-        /// @dev Zero if this generation is the oldest generation at Humanode chain.
+        /// The block number at Humanode chain that points to the previous generation.
+        /// Zero if this generation is the oldest generation at Humanode chain.
         uint256 prevPtr;
-        /// @notice The block number at Humanode chain that points to the next generation.
-        /// @dev Zero if this generation is the newest _known_ (bridged) generation at Humanode chain.
+        /// The block number at Humanode chain that points to the next generation.
+        /// Zero if this generation is the newest _known_ (bridged) generation at Humanode chain.
         uint256 nextPtr;
     }
 
@@ -45,15 +51,21 @@ interface IBridgedBiomapperRead {
     ///
     /// A new key is populated by the bridging tx when it is determined that the
     /// `Generation` _being bridged_ (i.e. non-historical) is not present at the BridgingTxPoint chain.
+    ///
+    /// #### Fields
+    /// | Name | Type | Description |
+    /// | ---- | ---- | ----------- |
+    /// | generationPtr | uint256 | The block number at Humanode chain corresponding to when the generation was initialized. Never zero. |
+    /// | prevPtr | uint256 | The block number at the BridgingTxPoint chain that points to the previous generation bridging tx point. Zero if this generation bridging tx point is the oldest point at the BridgingTxPoint chain. |
+    /// | nextPtr | uint256 | The block number at the BridgingTxPoint chain that points to the next generation bridging tx point. Zero if this generation bridging tx point is the newest point at the BridgingTxPoint chain. |
     struct GenerationBridgingTxPoint {
-        /// @notice The block number at Humanode chain corresponding to when the generation was initialized.
-        /// @dev Never zero.
+        /// The block number at Humanode chain corresponding to when the generation was initialized. Never zero.
         uint256 generationPtr;
-        /// @notice The block number at the BridgingTxPoint chain that points to the previous generation bridging tx point.
-        /// @dev Zero if this generation bridging tx point is the oldest point at the BridgingTxPoint chain.
+        /// The block number at the BridgingTxPoint chain that points to the previous generation bridging tx point.
+        /// Zero if this generation bridging tx point is the oldest point at the BridgingTxPoint chain.
         uint256 prevPtr;
-        /// @notice The block number at the BridgingTxPoint chain that points to the next generation bridging tx point.
-        /// @dev Zero if this generation bridging tx point is the newest point at the BridgingTxPoint chain.
+        /// The block number at the BridgingTxPoint chain that points to the next generation bridging tx point.
+        /// Zero if this generation bridging tx point is the newest point at the BridgingTxPoint chain.
         uint256 nextPtr;
     }
 
@@ -67,19 +79,25 @@ interface IBridgedBiomapperRead {
     /// for each historical generations that occurred prior to the generation _being bridged_
     /// if the bridging tx indicates that the account in the bridging tx has the biomapping in a given generation
     /// and the corresponding `Biomapping` is not present at the BridgingTxPoint chain.
+    ///
+    /// #### Fields
+    /// | Name | Type | Description |
+    /// | ---- | ---- | ----------- |
+    /// | generationPtr | uint256 | The block number at Humanode chain that corresponds to generation in which biomapping has occurred. Never zero. |
+    /// | biomappingBridgingTxPointPtr | uint256 | The block number at the BridgingTxPoint chain when biomapping was ported from Humanode chain to this chain. Zero if this biomapping corresponds to a generation than was bridged as a non-target generation (historical) in the bridging tx. |
+    /// | prevPtr | uint256 | The block number at Humanode chain that points to the previous biomapping for the corresponding account. Zero if this biomapping is the oldest biomapping for the corresponding account at Humanode chain. |
+    /// | nextPtr | uint256 | The block number at Humanode chain that points to the next biomapping for the corresponding account. Zero if this biomapping is the newest _known_ (bridged) biomapping for the corresponding account at Humanode chain. |
     struct Biomapping {
-        /// @notice The block number at Humanode chain that corresponds to generation in which biomapping has occurred.
-        /// @dev Never zero.
+        /// The block number at Humanode chain that corresponds to generation in which biomapping has occurred. Never zero.
         uint256 generationPtr;
-        /// @notice The block number at the BridgingTxPoint chain when biomapping was ported
-        /// from Humanode chain to this chain.
-        /// @dev Zero if this biomapping corresponds to a generation than was bridged as a non-target generation (historical) in the bridging tx.
+        /// The block number at the BridgingTxPoint chain when biomapping was ported from Humanode chain to this chain.
+        /// Zero if this biomapping corresponds to a generation than was bridged as a non-target generation (historical) in the bridging tx.
         uint256 biomappingBridgingTxPointPtr;
-        /// @notice The block number at Humanode chain that points to the previous biomapping for the corresponding account.
-        /// @dev Zero if this biomapping is the oldest biomapping for the corresponding account at Humanode chain.
+        /// The block number at Humanode chain that points to the previous biomapping for the corresponding account.
+        /// Zero if this biomapping is the oldest biomapping for the corresponding account at Humanode chain.
         uint256 prevPtr;
-        /// @notice The block number at Humanode chain that points to the next biomapping for the corresponding account.
-        /// @dev Zero if this biomapping is the newest _known_ (bridged) biomapping for the corresponding account at Humanode chain.
+        /// The block number at Humanode chain that points to the next biomapping for the corresponding account.
+        /// Zero if this biomapping is the newest _known_ (bridged) biomapping for the corresponding account at Humanode chain.
         uint256 nextPtr;
     }
 
@@ -90,18 +108,25 @@ interface IBridgedBiomapperRead {
     /// Allows locating `Biomapping` via `biomappingPtr`.
     ///
     /// A new key is populated by the bridging tx when a `Biomapping` is present for a given account in a non-historical generation.
+    ///
+    /// #### Fields
+    /// | Name | Type | Description |
+    /// | ---- | ---- | ----------- |
+    /// | generationBridgingTxPointPtr | uint256 | The block number at the BridgingTxPoint chain that corresponds to generation bridging tx point when this biomapping was bridged. Never zero. |
+    /// | biomappingPtr | uint256 | The block number at Humanode chain corresponding to when the biomap happened. Never zero. |
+    /// | prevPtr | uint256 | The block number at the BridgingTxPoint chain that points to the previous biomapping bridging tx point. Zero if this biomapping bridging tx point is the oldest point at the BridgingTxPoint chain. |
+    /// | nextPtr | uint256 | The block number at the BridgingTxPoint chain that points to the next biomapping bridging tx point. Zero if this biomapping bridging tx point is the newest point at the BridgingTxPoint chain. |
     struct BiomappingBridgingTxPoint {
-        /// @notice The block number at the BridgingTxPoint chain that corresponds to generation bridging tx point when this biomapping was bridged.
-        /// @dev Never zero.
+        /// The block number at the BridgingTxPoint chain that corresponds to generation bridging tx point when this biomapping was bridged.
+        /// Never zero.
         uint256 generationBridgingTxPointPtr;
-        /// @notice The block number at Humanode chain corresponding to when the biomap happened.
-        /// @dev Never zero.
+        /// The block number at Humanode chain corresponding to when the biomap happened. Never zero.
         uint256 biomappingPtr;
-        /// @notice The block number at the BridgingTxPoint chain that points to the previous biomapping bridging tx point.
-        /// @dev Zero if this biomapping bridging tx point is the oldest point at the BridgingTxPoint chain.
+        /// The block number at the BridgingTxPoint chain that points to the previous biomapping bridging tx point.
+        /// Zero if this biomapping bridging tx point is the oldest point at the BridgingTxPoint chain.
         uint256 prevPtr;
-        /// @notice The block number at the BridgingTxPoint chain that points to the next biomapping bridging tx point.
-        /// @dev Zero if this biomapping bridging tx point is the newest point at the BridgingTxPoint chain.
+        /// The block number at the BridgingTxPoint chain that points to the next biomapping bridging tx point.
+        /// Zero if this biomapping bridging tx point is the newest point at the BridgingTxPoint chain.
         uint256 nextPtr;
     }
 
