@@ -2227,7 +2227,7 @@ __metadata:
     hardhat: "npm:^2.22.18"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.7.3"
-    viem: "npm:^2.22.14"
+    viem: "npm:^2.22.15"
   languageName: unknown
   linkType: soft
 
@@ -4169,9 +4169,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"viem@npm:^2.22.14":
-  version: 2.22.14
-  resolution: "viem@npm:2.22.14"
+"viem@npm:^2.22.15":
+  version: 2.22.15
+  resolution: "viem@npm:2.22.15"
   dependencies:
     "@noble/curves": "npm:1.8.1"
     "@noble/hashes": "npm:1.7.1"
@@ -4186,7 +4186,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/85f856f759e89c69d3266e6f6a174ee8167210274041ffbe4f683327a10e4ec57db5da3a05c0b10a653e58bfb393bbdb21909f9ed915f62c9c8cbce4ac21e423
+  checksum: 10c0/de832e08423498d6b1746cfb352cbf525b433f57706890fe54c54f3576623e177f2edb9784c6a0cdc4cf77d50be15f0ead46798c2767393989477240bbbbee93
   languageName: node
   linkType: hard
 
