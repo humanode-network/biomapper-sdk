@@ -19,13 +19,11 @@ Find the up-to-date contract addresses [here][contract-addresses].
 
 ## Implementation Table
 
-| Contract           | Implemented Interfaces                          |
-| ------------------ | ----------------------------------------------- |
-| `Biomapper`        | [`ICheckUniqueness`]                            |
-| `BiomapperLog`     | [`IBiomapperLogRead`]                           |
-| `BridgedBiomapper` | [`ICheckUniqueness`], [`IBridgedBiomapperRead`] |
+| Contract           | Implemented Interfaces    |
+| ------------------ | ------------------------- |
+| `BiomapperLog`     | [`IBiomapperLogRead`]     |
+| `BridgedBiomapper` | [`IBridgedBiomapperRead`] |
 
-[`ICheckUniqueness`]: core/ICheckUniqueness.sol/interface.ICheckUniqueness.html
 [`IBiomapperLogRead`]: core/IBiomapperLogRead.sol/interface.IBiomapperLogRead.html
 [`IBridgedBiomapperRead`]: core/IBridgedBiomapperRead.sol/interface.IBridgedBiomapperRead.html
 
@@ -48,7 +46,6 @@ yarn add @biomapper-sdk/core @biomapper-sdk/libraries @biomapper-sdk/events
 Import the dependencies from the `@biomapper-sdk` like this:
 
 ```solidity
-import {ICheckUniqueness} from "@biomapper-sdk/core/ICheckUniqueness.sol";
 import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
 import {IBridgedBiomapperRead} from "@biomapper-sdk/core/IBridgedBiomapperRead.sol";
 import {BiomapperLogLib} from "@biomapper-sdk/libraries/BiomapperLogLib.sol";
@@ -65,7 +62,6 @@ forge install humanode-network/biomapper-sdk
 Import the dependencies from `biomapper-sdk` like this:
 
 ```solidity
-import {ICheckUniqueness} from "biomapper-sdk/core/ICheckUniqueness.sol";
 import {IBiomapperLogRead} from "biomapper-sdk/core/IBiomapperLogRead.sol";
 import {IBridgedBiomapperRead} from "biomapper-sdk/core/IBridgedBiomapperRead.sol";
 import {BiomapperLogLib} from "biomapper-sdk/libraries/BiomapperLogLib.sol";
