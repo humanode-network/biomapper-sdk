@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @dev Interface for the `MockBiomapperLock` contract.
+/// @dev Interface for the `MockBiomapperLog` contract.
 /// @notice Mock access for writing biomapper log.
 interface IMockBiomapperLogWrite {
     /// @notice Initializes a new generation.
