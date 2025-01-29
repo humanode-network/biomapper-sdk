@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @title IBridgedBiomapperRead
-/// @notice The interface.
+/// @dev Interface for the `BridgedBiomapper` contract.
+/// @notice View bridged historical biomapping state for a given account,
+/// and overall generation changes.
 ///
 /// A bridging tx is a transaction included in a block at the bridged chain that imports data from Humanode chain.
 ///
