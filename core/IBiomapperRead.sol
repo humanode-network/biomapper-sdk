@@ -8,7 +8,7 @@ pragma solidity ^0.8.20;
 /// #### Examples
 ///
 /// See the [BiomapperLogExamples](../../usage/BiomapperLogExamples.sol/contract.BiomapperLogExamples.html).
-interface IBiomapperLogRead {
+interface IBiomapperRead {
     /// @notice Structure representing a biomapper generation as an element of a doubly linked list.
     ///
     /// @notice Pointer of {Generation} is a number of block that contains a 'generation change' transaction.

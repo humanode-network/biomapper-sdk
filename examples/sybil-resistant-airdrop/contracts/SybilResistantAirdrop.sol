@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
+import {IBiomapperRead} from "@biomapper-sdk/core/IBiomapperRead.sol";
 import {BiomapperLogLib} from "@biomapper-sdk/libraries/BiomapperLogLib.sol";
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
@@ -13,12 +13,12 @@ import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol
  */
 contract SybilResistantAirdrop {
     using SafeERC20 for IERC20;
-    using BiomapperLogLib for IBiomapperLogRead;
+    using BiomapperLogLib for IBiomapperRead;
 
     IERC20 public immutable ERC20_TOKEN; // The ERC20 token being airdropped
     address public immutable TOKEN_VAULT; // The address holding the tokens for the airdrop
     uint256 public immutable AMOUNT_PER_USER; // The amount of tokens each user can claim
-    IBiomapperLogRead public immutable BIOMAPPER_LOG; // The contract for checking uniqueness of users
+    IBiomapperRead public immutable BIOMAPPER_LOG; // The contract for checking uniqueness of users
 
     mapping(address => bool) public isAlreadyClaimed; // Mapping to track claimed users
 
@@ -38,7 +38,7 @@ contract SybilResistantAirdrop {
         ERC20_TOKEN = IERC20(tokenAddress);
         TOKEN_VAULT = tokenVault;
         AMOUNT_PER_USER = amountPerUser;
-        BIOMAPPER_LOG = IBiomapperLogRead(biomapperLogAddress);
+        BIOMAPPER_LOG = IBiomapperRead(biomapperLogAddress);
     }
 
     /**

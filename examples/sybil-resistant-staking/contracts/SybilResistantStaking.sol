@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
+import {IBiomapperRead} from "@biomapper-sdk/core/IBiomapperRead.sol";
 import {BiomapperLogLib} from "@biomapper-sdk/libraries/BiomapperLogLib.sol";
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
@@ -9,13 +9,13 @@ import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol
 
 contract SybilResistantStaking {
     using SafeERC20 for IERC20;
-    using BiomapperLogLib for IBiomapperLogRead;
+    using BiomapperLogLib for IBiomapperRead;
 
     IERC20 public immutable STAKING_TOKEN;
     IERC20 public immutable REWARD_TOKEN;
     address public immutable REWARD_TOKEN_VAULT;
     uint256 public immutable PERCENT_MULTIPLIER;
-    IBiomapperLogRead public immutable BIOMAPPER_LOG;
+    IBiomapperRead public immutable BIOMAPPER_LOG;
 
     mapping(address => uint256) public amountDeposited;
     mapping(address => uint256) public depositedAt;
@@ -31,7 +31,7 @@ contract SybilResistantStaking {
         REWARD_TOKEN = IERC20(rewardTokenAddress);
         REWARD_TOKEN_VAULT = rewardTokenVault;
         PERCENT_MULTIPLIER = percentMultiplier;
-        BIOMAPPER_LOG = IBiomapperLogRead(biomapperLogAddress);
+        BIOMAPPER_LOG = IBiomapperRead(biomapperLogAddress);
     }
 
     modifier mustBeUnique() {

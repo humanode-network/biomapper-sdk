@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
+import {IBiomapperRead} from "@biomapper-sdk/core/IBiomapperRead.sol";
 
 /// @notice A utility library for the `BiomapperLog` contract.
 library BiomapperLogLib {
@@ -11,7 +11,7 @@ library BiomapperLogLib {
     /// @param who The address to check for uniqueness.
     /// @return A boolean value indicating whether the address is biomapped (true) or not (false).
     function isUnique(
-        IBiomapperLogRead biomapperLog,
+        IBiomapperRead biomapperLog,
         address who
     ) external view returns (bool) {
         uint256 currentGeneration = biomapperLog.generationsHead();
@@ -30,7 +30,7 @@ library BiomapperLogLib {
     /// @param fromBlock The starting block number.
     /// @return blocks The number of blocks the user has been biomapped for.
     function countBiomappedBlocks(
-        IBiomapperLogRead biomapperLog,
+        IBiomapperRead biomapperLog,
         address who,
         uint256 fromBlock
     ) public view returns (uint256 blocks) {
@@ -65,7 +65,7 @@ library BiomapperLogLib {
     /// @param who The address to check.
     /// @return The block number of the first biomapping for the user, or 0 if never biomapped.
     function firstBiomappedGeneration(
-        IBiomapperLogRead biomapperLog,
+        IBiomapperRead biomapperLog,
         address who
     ) external view returns (uint256) {
         uint256 firstBiomap = biomapperLog.biomappingsTail({account: who});
@@ -86,7 +86,7 @@ library BiomapperLogLib {
     /// @return The block number of the oldest sequential biomapping for the user,
     /// or 0 if not biomapped in the current generation.
     function firstSequentialBiomappedGeneration(
-        IBiomapperLogRead biomapperLog,
+        IBiomapperRead biomapperLog,
         address who
     ) external view returns (uint256) {
         uint256 generation = biomapperLog.generationsHead();

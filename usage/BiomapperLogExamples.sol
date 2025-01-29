@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
+import {IBiomapperRead} from "@biomapper-sdk/core/IBiomapperRead.sol";
 
 /// @dev Usage examples for the `BiomapperLog` contract.
 /// @notice Here are the usage examples for the `BiomapperLog` contract.
@@ -23,7 +23,7 @@ contract BiomapperLogExamples {
     /// the documentation.
     function example1() external view {
         // Activate the interface.
-        IBiomapperLogRead biomapperLog = IBiomapperLogRead(
+        IBiomapperRead biomapperLog = IBiomapperRead(
             BIOMAPPER_LOG_CONTRACT_ADDRESS
         );
 
@@ -52,7 +52,7 @@ contract BiomapperLogExamples {
     /// the documentation.
     function example2() external view {
         // Activate the interface.
-        IBiomapperLogRead biomapperLog = IBiomapperLogRead(
+        IBiomapperRead biomapperLog = IBiomapperRead(
             BIOMAPPER_LOG_CONTRACT_ADDRESS
         );
 

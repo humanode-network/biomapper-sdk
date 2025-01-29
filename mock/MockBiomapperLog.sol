@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 import {IMockBiomapperLogWrite} from "./IMockBiomapperLogWrite.sol";
-import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
+import {IBiomapperRead} from "@biomapper-sdk/core/IBiomapperRead.sol";
 
 /// @notice Mock contract implementing `BiomapperLog` contract interfaces.
 ///
@@ -16,7 +16,7 @@ import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
 ///
 /// @notice When deployed independently, use the `IMockBiomapperLogWrite`
 /// interface to drive the state.
-contract MockBiomapperLog is IBiomapperLogRead, IMockBiomapperLogWrite {
+contract MockBiomapperLog is IBiomapperRead, IMockBiomapperLogWrite {
     uint256 public generationsHead;
     uint256 public generationsTail;
     mapping(uint256 => Generation) public generationsList;
@@ -28,21 +28,21 @@ contract MockBiomapperLog is IBiomapperLogRead, IMockBiomapperLogWrite {
     mapping(address => mapping(uint256 => uint256))
         public generationBiomappings;
 
-    /// @inheritdoc IBiomapperLogRead
+    /// @inheritdoc IBiomapperRead
     function biomappingsHead(
         address account
     ) external view override returns (uint256) {
         return biomappingsHeads[account];
     }
 
-    /// @inheritdoc IBiomapperLogRead
+    /// @inheritdoc IBiomapperRead
     function biomappingsTail(
         address account
     ) external view override returns (uint256) {
         return biomappingsTails[account];
     }
 
-    /// @inheritdoc IBiomapperLogRead
+    /// @inheritdoc IBiomapperRead
     function biomappingsListItem(
         address account,
         uint256 ptr
@@ -50,14 +50,14 @@ contract MockBiomapperLog is IBiomapperLogRead, IMockBiomapperLogWrite {
         return biomappingsLists[account][ptr];
     }
 
-    /// @inheritdoc IBiomapperLogRead
+    /// @inheritdoc IBiomapperRead
     function generationsListItem(
         uint256 ptr
     ) external view override returns (Generation memory) {
         return generationsList[ptr];
     }
 
-    /// @inheritdoc IBiomapperLogRead
+    /// @inheritdoc IBiomapperRead
     function generationBiomapping(
         address account,
         uint256 generationPtr

@@ -21,10 +21,10 @@ Find the up-to-date contract addresses [here][contract-addresses].
 
 | Contract           | Implemented Interfaces    |
 | ------------------ | ------------------------- |
-| `BiomapperLog`     | [`IBiomapperLogRead`]     |
+| `BiomapperLog`     | [`IBiomapperRead`]        |
 | `BridgedBiomapper` | [`IBridgedBiomapperRead`] |
 
-[`IBiomapperLogRead`]: core/IBiomapperLogRead.sol/interface.IBiomapperLogRead.html
+[`IBiomapperRead`]: core/IBiomapperRead.sol/interface.IBiomapperRead.html
 [`IBridgedBiomapperRead`]: core/IBridgedBiomapperRead.sol/interface.IBridgedBiomapperRead.html
 
 ## Installation
@@ -46,7 +46,7 @@ yarn add @biomapper-sdk/core @biomapper-sdk/libraries @biomapper-sdk/events
 Import the dependencies from the `@biomapper-sdk` like this:
 
 ```solidity
-import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
+import {IBiomapperRead} from "@biomapper-sdk/core/IBiomapperRead.sol";
 import {IBridgedBiomapperRead} from "@biomapper-sdk/core/IBridgedBiomapperRead.sol";
 import {BiomapperLogLib} from "@biomapper-sdk/libraries/BiomapperLogLib.sol";
 ```
@@ -62,7 +62,7 @@ forge install humanode-network/biomapper-sdk
 Import the dependencies from `biomapper-sdk` like this:
 
 ```solidity
-import {IBiomapperLogRead} from "biomapper-sdk/core/IBiomapperLogRead.sol";
+import {IBiomapperRead} from "biomapper-sdk/core/IBiomapperRead.sol";
 import {IBridgedBiomapperRead} from "biomapper-sdk/core/IBridgedBiomapperRead.sol";
 import {BiomapperLogLib} from "biomapper-sdk/libraries/BiomapperLogLib.sol";
 ```

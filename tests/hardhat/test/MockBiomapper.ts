@@ -233,7 +233,7 @@ describe("MockBiomapper", () => {
     });
   });
 
-  describe("IBiomapperLogRead", () => {
+  describe("IBiomapperRead", () => {
     describe("#generationsHead", () => {
       context("on deploy", () => {
         it("is initialized", async () => {
