@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {ICheckUniqueness} from "@biomapper-sdk/core/ICheckUniqueness.sol";
+import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
+import {BiomapperLogLib} from "@biomapper-sdk/libraries/BiomapperLogLib.sol";
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
@@ -12,11 +13,12 @@ import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol
  */
 contract SybilResistantAirdrop {
     using SafeERC20 for IERC20;
+    using BiomapperLogLib for IBiomapperLogRead;
 
     IERC20 public immutable ERC20_TOKEN; // The ERC20 token being airdropped
     address public immutable TOKEN_VAULT; // The address holding the tokens for the airdrop
     uint256 public immutable AMOUNT_PER_USER; // The amount of tokens each user can claim
-    ICheckUniqueness public immutable BIOMAPPER; // The contract for checking uniqueness of users
+    IBiomapperLogRead public immutable BIOMAPPER_LOG; // The contract for checking uniqueness of users
 
     mapping(address => bool) public isAlreadyClaimed; // Mapping to track claimed users
 
@@ -25,18 +27,18 @@ contract SybilResistantAirdrop {
      * @param tokenAddress The address of the ERC20 token being airdropped.
      * @param tokenVault The address holding the tokens for the airdrop.
      * @param amountPerUser The amount of tokens each user can claim.
-     * @param biomapperAddress The address of the contract for checking uniqueness of users.
+     * @param biomapperLogAddress The address of the contract for checking uniqueness of users.
      */
     constructor(
         address tokenAddress,
         address tokenVault,
         uint256 amountPerUser,
-        address biomapperAddress
+        address biomapperLogAddress
     ) {
         ERC20_TOKEN = IERC20(tokenAddress);
         TOKEN_VAULT = tokenVault;
         AMOUNT_PER_USER = amountPerUser;
-        BIOMAPPER = ICheckUniqueness(biomapperAddress);
+        BIOMAPPER_LOG = IBiomapperLogRead(biomapperLogAddress);
     }
 
     /**
@@ -50,7 +52,7 @@ contract SybilResistantAirdrop {
      */
     function claim() public {
         require(!isAlreadyClaimed[msg.sender], "User has already claimed");
-        require(BIOMAPPER.isUnique(msg.sender), "User is not unique");
+        require(BIOMAPPER_LOG.isUnique(msg.sender), "User is not unique");
 
         ERC20_TOKEN.safeTransferFrom(TOKEN_VAULT, msg.sender, AMOUNT_PER_USER);
 

@@ -3,7 +3,6 @@ pragma solidity ^0.8.20;
 
 import {MockBiomapperLog} from "./MockBiomapperLog.sol";
 import {IMockBiomapperControl} from "./IMockBiomapperControl.sol";
-import {ICheckUniqueness} from "@biomapper-sdk/core/ICheckUniqueness.sol";
 import {IGenerationChangeEvents} from "@biomapper-sdk/events/IGenerationChangeEvents.sol";
 import {IProveUniquenessEvents} from "@biomapper-sdk/events/IProveUniquenessEvents.sol";
 
@@ -17,7 +16,6 @@ import {IProveUniquenessEvents} from "@biomapper-sdk/events/IProveUniquenessEven
 /// as needed. Use `getMockBiomapperLogAddress` to obtain the address of
 /// the corresponding `MockBiomapperLog` contract.
 contract MockBiomapper is
-    ICheckUniqueness,
     IGenerationChangeEvents,
     IProveUniquenessEvents,
     IMockBiomapperControl
@@ -44,11 +42,6 @@ contract MockBiomapper is
         returns (address mockBiomapperLogAddress)
     {
         return address(_MOCK_BIOMAPPER_LOG);
-    }
-
-    /// @inheritdoc ICheckUniqueness
-    function isUnique(address queriedAddress) external view returns (bool) {
-        return _unique[_currentGeneration][queriedAddress];
     }
 
     /// @inheritdoc IMockBiomapperControl
