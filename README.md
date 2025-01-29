@@ -21,7 +21,7 @@ Find the up-to-date contract addresses [here][contract-addresses].
 
 | Contract           | Implemented Interfaces    |
 | ------------------ | ------------------------- |
-| `BiomapperLog`     | [`IBiomapperRead`]        |
+| `Biomapper`        | [`IBiomapperRead`]        |
 | `BridgedBiomapper` | [`IBridgedBiomapperRead`] |
 
 [`IBiomapperRead`]: core/IBiomapperRead.sol/interface.IBiomapperRead.html
@@ -48,7 +48,7 @@ Import the dependencies from the `@biomapper-sdk` like this:
 ```solidity
 import {IBiomapperRead} from "@biomapper-sdk/core/IBiomapperRead.sol";
 import {IBridgedBiomapperRead} from "@biomapper-sdk/core/IBridgedBiomapperRead.sol";
-import {BiomapperLogLib} from "@biomapper-sdk/libraries/BiomapperLogLib.sol";
+import {BiomapperLib} from "@biomapper-sdk/libraries/BiomapperLib.sol";
 ```
 
 ### With Foundry
@@ -64,7 +64,7 @@ Import the dependencies from `biomapper-sdk` like this:
 ```solidity
 import {IBiomapperRead} from "biomapper-sdk/core/IBiomapperRead.sol";
 import {IBridgedBiomapperRead} from "biomapper-sdk/core/IBridgedBiomapperRead.sol";
-import {BiomapperLogLib} from "biomapper-sdk/libraries/BiomapperLogLib.sol";
+import {BiomapperLib} from "biomapper-sdk/libraries/BiomapperLib.sol";
 ```
 
 ## Usage

@@ -2,20 +2,20 @@
 pragma solidity ^0.8.20;
 
 import {IBiomapperRead} from "@biomapper-sdk/core/IBiomapperRead.sol";
-import {BiomapperLogLib} from "@biomapper-sdk/libraries/BiomapperLogLib.sol";
+import {BiomapperLib} from "@biomapper-sdk/libraries/BiomapperLib.sol";
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 contract SybilResistantStaking {
     using SafeERC20 for IERC20;
-    using BiomapperLogLib for IBiomapperRead;
+    using BiomapperLib for IBiomapperRead;
 
     IERC20 public immutable STAKING_TOKEN;
     IERC20 public immutable REWARD_TOKEN;
     address public immutable REWARD_TOKEN_VAULT;
     uint256 public immutable PERCENT_MULTIPLIER;
-    IBiomapperRead public immutable BIOMAPPER_LOG;
+    IBiomapperRead public immutable BIOMAPPER;
 
     mapping(address => uint256) public amountDeposited;
     mapping(address => uint256) public depositedAt;
@@ -25,17 +25,17 @@ contract SybilResistantStaking {
         address rewardTokenAddress,
         address rewardTokenVault,
         uint256 percentMultiplier,
-        address biomapperLogAddress
+        address biomapperAddress
     ) {
         STAKING_TOKEN = IERC20(stakingTokenAddress);
         REWARD_TOKEN = IERC20(rewardTokenAddress);
         REWARD_TOKEN_VAULT = rewardTokenVault;
         PERCENT_MULTIPLIER = percentMultiplier;
-        BIOMAPPER_LOG = IBiomapperRead(biomapperLogAddress);
+        BIOMAPPER = IBiomapperRead(biomapperAddress);
     }
 
     modifier mustBeUnique() {
-        require(BIOMAPPER_LOG.isUnique(msg.sender), "User is not unique");
+        require(BIOMAPPER.isUnique(msg.sender), "User is not unique");
         _;
     }
 
@@ -59,7 +59,7 @@ contract SybilResistantStaking {
         uint256 stakedAmount = amountDeposited[msg.sender];
 
         uint256 rewardAmount = (stakedAmount *
-            BIOMAPPER_LOG.countBiomappedBlocks({
+            BIOMAPPER.countBiomappedBlocks({
                 who: msg.sender,
                 fromBlock: depositedAt[msg.sender]
             }) *

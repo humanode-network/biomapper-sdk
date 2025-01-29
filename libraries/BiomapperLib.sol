@@ -3,20 +3,20 @@ pragma solidity ^0.8.20;
 
 import {IBiomapperRead} from "@biomapper-sdk/core/IBiomapperRead.sol";
 
-/// @notice A utility library for the `BiomapperLog` contract.
-library BiomapperLogLib {
+/// @notice A utility library for the `Biomapper` contract.
+library BiomapperLib {
     /// @notice Determines the uniqueness status of a given address in the current biomapper generation.
     /// The alternative way of using the `Biomapper` contract.
-    /// @param biomapperLog The `BiomapperLog` contract.
+    /// @param biomapper The `Biomapper` contract.
     /// @param who The address to check for uniqueness.
     /// @return A boolean value indicating whether the address is biomapped (true) or not (false).
     function isUnique(
-        IBiomapperRead biomapperLog,
+        IBiomapperRead biomapper,
         address who
     ) external view returns (bool) {
-        uint256 currentGeneration = biomapperLog.generationsHead();
+        uint256 currentGeneration = biomapper.generationsHead();
 
-        uint256 biomappedAt = biomapperLog.generationBiomapping({
+        uint256 biomappedAt = biomapper.generationBiomapping({
             account: who,
             generationPtr: currentGeneration
         });
@@ -25,21 +25,21 @@ library BiomapperLogLib {
     }
 
     /// @notice Counts the number of blocks a user has been biomapped for.
-    /// @param biomapperLog The `BiomapperLog` contract.
+    /// @param biomapper The `Biomapper` contract.
     /// @param who The address to count.
     /// @param fromBlock The starting block number.
     /// @return blocks The number of blocks the user has been biomapped for.
     function countBiomappedBlocks(
-        IBiomapperRead biomapperLog,
+        IBiomapperRead biomapper,
         address who,
         uint256 fromBlock
     ) public view returns (uint256 blocks) {
-        uint256 generation = biomapperLog.generationsHead();
+        uint256 generation = biomapper.generationsHead();
         uint256 to = block.number;
         uint256 from;
 
         while (true) {
-            from = biomapperLog.generationBiomapping({
+            from = biomapper.generationBiomapping({
                 account: who,
                 generationPtr: generation
             });
@@ -54,47 +54,47 @@ library BiomapperLogLib {
 
             to = generation;
 
-            generation = biomapperLog
+            generation = biomapper
                 .generationsListItem({ptr: generation})
                 .prevPtr;
         }
     }
 
     /// @notice Finds the first generation a user was biomapped in.
-    /// @param biomapperLog The `BiomapperLog` contract.
+    /// @param biomapper The `Biomapper` contract.
     /// @param who The address to check.
     /// @return The block number of the first biomapping for the user, or 0 if never biomapped.
     function firstBiomappedGeneration(
-        IBiomapperRead biomapperLog,
+        IBiomapperRead biomapper,
         address who
     ) external view returns (uint256) {
-        uint256 firstBiomap = biomapperLog.biomappingsTail({account: who});
+        uint256 firstBiomap = biomapper.biomappingsTail({account: who});
 
         if (firstBiomap == 0) {
             return 0;
         }
 
         return
-            biomapperLog
+            biomapper
                 .biomappingsListItem({account: who, ptr: firstBiomap})
                 .generationPtr;
     }
 
     /// @notice Finds the block number of the oldest sequential biomapping for a user.
-    /// @param biomapperLog The `BiomapperLog` contract.
+    /// @param biomapper The `Biomapper` contract.
     /// @param who The address of the user to check.
     /// @return The block number of the oldest sequential biomapping for the user,
     /// or 0 if not biomapped in the current generation.
     function firstSequentialBiomappedGeneration(
-        IBiomapperRead biomapperLog,
+        IBiomapperRead biomapper,
         address who
     ) external view returns (uint256) {
-        uint256 generation = biomapperLog.generationsHead();
+        uint256 generation = biomapper.generationsHead();
 
         uint256 oldestSequentialBiomappedAt;
 
         while (true) {
-            uint256 oldestSequentialBiomappedAtCandidate = biomapperLog
+            uint256 oldestSequentialBiomappedAtCandidate = biomapper
                 .generationBiomapping({
                     account: who,
                     generationPtr: generation
@@ -106,7 +106,7 @@ library BiomapperLogLib {
 
             oldestSequentialBiomappedAt = oldestSequentialBiomappedAtCandidate;
 
-            generation = biomapperLog
+            generation = biomapper
                 .generationsListItem({ptr: generation})
                 .prevPtr;
 

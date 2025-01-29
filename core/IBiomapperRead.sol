@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @dev Interface for the `BiomapperLog` contract.
+/// @dev Interface for the `Biomapper` contract.
 /// @notice View historical biomapping state for a given account,
 /// and overall generation changes.
 ///
 /// #### Examples
 ///
-/// See the [BiomapperLogExamples](../../usage/BiomapperLogExamples.sol/contract.BiomapperLogExamples.html).
+/// See the [BiomapperExamples](../../usage/BiomapperExamples.sol/contract.BiomapperExamples.html).
 interface IBiomapperRead {
     /// @notice Structure representing a biomapper generation as an element of a doubly linked list.
     ///
