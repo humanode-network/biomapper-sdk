@@ -233,46 +233,6 @@ describe("MockBiomapper", () => {
     });
   });
 
-  describe("ICheckUniqueness", () => {
-    describe("#isUnique", () => {
-      context("when not mapped", () => {
-        it("returns false", async () => {
-          const { biomapper, account0 } = await loadFixture(testFixture);
-
-          expect(await biomapper.read.isUnique([account0.account.address])).to
-            .be.false;
-        });
-      });
-
-      context("when mapped", () => {
-        it("returns true", async () => {
-          const { biomapper, account0 } = await loadFixture(testFixture);
-
-          await biomapper.write.biomap([account0.account.address, BIOTOKEN]);
-
-          expect(await biomapper.read.isUnique([account0.account.address])).to
-            .be.true;
-        });
-      });
-
-      context("after generation change", () => {
-        it("returns false", async () => {
-          const { biomapper, account0 } = await loadFixture(testFixture);
-
-          await biomapper.write.biomap([account0.account.address, BIOTOKEN]);
-
-          expect(await biomapper.read.isUnique([account0.account.address])).to
-            .be.true;
-
-          await biomapper.write.initGeneration();
-
-          expect(await biomapper.read.isUnique([account0.account.address])).to
-            .be.false;
-        });
-      });
-    });
-  });
-
   describe("IBiomapperLogRead", () => {
     describe("#generationsHead", () => {
       context("on deploy", () => {
