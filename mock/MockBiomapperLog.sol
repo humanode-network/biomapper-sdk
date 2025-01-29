@@ -66,7 +66,7 @@ contract MockBiomapperLog is IBiomapperRead, IMockBiomapperLogWrite {
     }
 
     /// @inheritdoc IMockBiomapperLogWrite
-    function initGeneration(bytes32 generation) external {
+    function initGeneration(bytes32 generation) public {
         uint256 prevPtr = generationsHead;
         require(
             prevPtr != block.number,
@@ -88,7 +88,7 @@ contract MockBiomapperLog is IBiomapperRead, IMockBiomapperLogWrite {
     }
 
     /// @inheritdoc IMockBiomapperLogWrite
-    function biomap(address account) external {
+    function biomap(address account) public {
         uint256 generationPtr = generationsHead;
         require(generationPtr != 0, "generation must be initialized");
 
