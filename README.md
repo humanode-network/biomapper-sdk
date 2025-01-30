@@ -19,13 +19,16 @@ Find the up-to-date contract addresses [here][contract-addresses].
 
 ## Implementation Table
 
-| Contract           | Implemented Interfaces    |
-| ------------------ | ------------------------- |
-| `BiomapperLog`     | [`IBiomapperLogRead`]     |
-| `BridgedBiomapper` | [`IBridgedBiomapperRead`] |
+| Contract           | Implemented Interfaces                                  |
+| ------------------ | ------------------------------------------------------- |
+| `Biomapper`        | [`IGenerationChangeEvents`], [`IProveUniquenessEvents`] |
+| `BiomapperLog`     | [`IBiomapperLogRead`]                                   |
+| `BridgedBiomapper` | [`IBridgedBiomapperRead`]                               |
 
 [`IBiomapperLogRead`]: core/IBiomapperLogRead.sol/interface.IBiomapperLogRead.html
 [`IBridgedBiomapperRead`]: core/IBridgedBiomapperRead.sol/interface.IBridgedBiomapperRead.html
+[`IGenerationChangeEvents`]: events/IGenerationChangeEvents.sol/interface.IGenerationChangeEvents.html
+[`IProveUniquenessEvents`]: events/IProveUniquenessEvents.sol/interface.IProveUniquenessEvents.html
 
 ## Installation
 
