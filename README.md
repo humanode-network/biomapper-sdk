@@ -1,8 +1,4 @@
-![Biomapper SDK][logo]
-
-[logo]: https://github.com/humanode-network/biomapper-sdk/assets/265507/2afffc2e-85c2-4410-9866-b3956c7e0baf
-
-# Humanode Biomapper SDK
+<img style="color: transparent; display: block; max-height: 64px; object-fit: cover; object-position: 50% 45%; width: 8000px;  aspect-ratio: auto 8000 / 4500;" alt="Biomapper SDK" src="https://github.com/humanode-network/biomapper-sdk/assets/265507/2afffc2e-85c2-4410-9866-b3956c7e0baf" />
 
 This is the SDK for the Humanode Biomapper - a biometrics-based sybil-resistance
 utility for EVM smart contracts.
