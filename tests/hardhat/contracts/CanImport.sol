@@ -11,3 +11,4 @@ import {MockBiomapperLog} from "@biomapper-sdk/mock/MockBiomapperLog.sol";
 import {IMockBiomapperControl} from "@biomapper-sdk/mock/IMockBiomapperControl.sol";
 import {IMockBiomapperLogWrite} from "@biomapper-sdk/mock/IMockBiomapperLogWrite.sol";
 import {MockBridgedBiomapper} from "@biomapper-sdk/mock/MockBridgedBiomapper.sol";
+import {IMockBridgedBiomapperControl} from "@biomapper-sdk/mock/IMockBridgedBiomapperControl.sol";
