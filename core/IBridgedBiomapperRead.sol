@@ -186,7 +186,7 @@ interface IBridgedBiomapperRead {
         uint256 ptr
     ) external view returns (Biomapping memory);
 
-    // `BiomappingsBridgingTxPoint` accessors.
+    // `BiomappingBridgingTxPoint` accessors.
 
     /// @notice Returns the most recent biomapping bridging tx point for a given account address.
     /// @param account The address of the requested account.
@@ -224,12 +224,12 @@ interface IBridgedBiomapperRead {
         uint256 generationPtr
     ) external view returns (uint256);
 
-    /// @notice Returns the {BiomappingsBridgingTxPoint} ptr for a given account address and generation bridged tx point.
+    /// @notice Returns the {BiomappingBridgingTxPoint} ptr for a given account address and generation bridged tx point.
     /// @dev Returns non-zero if the account biomapping was bridged in a given generation.
     /// @param account The address of the requested account.
     /// @param generationBridgedTxPointPtr The pointer of the requested generation.
     /// @return The block number in which the requested user was biomapped in the requested generation, or 0 if there was no biomapping.
-    /// Note: there is a possibility that the biomapping was bridged as part of a bridge tx where the generation it belonged to is a historical generation, in which case the {Biomapping} will exist, but the {BiomappingBridgedTxPoint} will be absent.
+    /// Note: there is a possibility that the biomapping was bridged as part of a bridge tx where the generation it belonged to is a historical generation, in which case the {Biomapping} will exist, but the [BiomappingBridgedTxPoint](./interface.IBridgedBiomapperRead.html#biomappingbridgingtxpoint) will be absent.
     function lookupBiomappingBridgedTxPointPtr(
         address account,
         uint256 generationBridgedTxPointPtr
