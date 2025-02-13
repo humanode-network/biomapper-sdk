@@ -3,18 +3,12 @@ pragma solidity ^0.8.20;
 
 import {IBridgedBiomapperRead} from "@biomapper-sdk/core/IBridgedBiomapperRead.sol";
 import {IBridgeBiomappingEvents} from "@biomapper-sdk/events/IBridgeBiomappingEvents.sol";
-
-// The info about one biomapping event.
-struct BiomappingData {
-    // The generation, Humanode chain block number.
-    uint256 generationPtr;
-    // The biomapping, Humanode chain block number.
-    uint256 biomappingPtr;
-}
+import {IMockBridgedBiomapperControl} from "./IMockBridgedBiomapperControl.sol";
 
 contract MockBridgedBiomapper is
     IBridgedBiomapperRead,
-    IBridgeBiomappingEvents
+    IBridgeBiomappingEvents,
+    IMockBridgedBiomapperControl
 {
     uint256 public generationsHead;
     uint256 public generationsTail;
@@ -41,11 +35,7 @@ contract MockBridgedBiomapper is
 
     uint8 public testCaseNumber;
 
-    // A quick and easy way to add test data to the mock contract, as well as an example of how to add new data.
-    //
-    // The test data represents the history of 2 accounts across 6 generations.
-    //
-    // This function can be executed up to 4 times in different blocks to add test data.
+    /// @inheritdoc IMockBridgedBiomapperControl
     function addTestData() external {
         // The first two default Hardhat accounts.
         // Mnemonic: "test test test test test test test test test test test junk"
@@ -190,28 +180,31 @@ contract MockBridgedBiomapper is
         }
     }
 
-    // IBridgedBiomapperRead
-
+    /// @inheritdoc IBridgedBiomapperRead
     function generationsListItem(
         uint256 ptr
     ) external view returns (Generation memory) {
         return generationsList[ptr];
     }
 
+    /// @inheritdoc IBridgedBiomapperRead
     function generationsBridgingTxPointsListItem(
         uint256 ptr
     ) external view returns (GenerationBridgingTxPoint memory) {
         return generationBridgingTxPointsList[ptr];
     }
 
+    /// @inheritdoc IBridgedBiomapperRead
     function biomappingsHead(address account) external view returns (uint256) {
         return _biomappingsHeads[account];
     }
 
+    /// @inheritdoc IBridgedBiomapperRead
     function biomappingsTail(address account) external view returns (uint256) {
         return _biomappingsTails[account];
     }
 
+    /// @inheritdoc IBridgedBiomapperRead
     function biomappingsListItem(
         address account,
         uint256 ptr
@@ -219,18 +212,21 @@ contract MockBridgedBiomapper is
         return _biomappingsList[account][ptr];
     }
 
+    /// @inheritdoc IBridgedBiomapperRead
     function biomappingsBridgingTxPointsHead(
         address account
     ) external view returns (uint256) {
         return _biomappingBridgingTxPointsHeads[account];
     }
 
+    /// @inheritdoc IBridgedBiomapperRead
     function biomappingsBridgingTxPointsTail(
         address account
     ) external view returns (uint256) {
         return _biomappingBridgingTxPointsTails[account];
     }
 
+    /// @inheritdoc IBridgedBiomapperRead
     function biomappingsBridgingTxPointsListItem(
         address account,
         uint256 ptr
@@ -238,6 +234,7 @@ contract MockBridgedBiomapper is
         return _biomappingBridgingTxPointsList[account][ptr];
     }
 
+    /// @inheritdoc IBridgedBiomapperRead
     function lookupBiomappingPtr(
         address account,
         uint256 generationPtr
@@ -245,6 +242,7 @@ contract MockBridgedBiomapper is
         return _biomappingPtrs[account][generationPtr];
     }
 
+    /// @inheritdoc IBridgedBiomapperRead
     function lookupBiomappingBridgedTxPointPtr(
         address account,
         uint256 generationPtr
@@ -252,8 +250,7 @@ contract MockBridgedBiomapper is
         return _biomappingBridgedTxPointPtrs[account][generationPtr];
     }
 
-    // Bridge data
-
+    /// @inheritdoc IMockBridgedBiomapperControl
     function updateBiomappings(
         BiomappingData[] memory biomappingsData,
         address account
