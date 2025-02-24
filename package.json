@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@openzeppelin/contracts": "^5.2.0",
-    "prettier": "^3.5.1",
+    "prettier": "^3.5.2",
     "solhint": "^5.0.5"
   }
 }
