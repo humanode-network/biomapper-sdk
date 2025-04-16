@@ -49,7 +49,7 @@ Import the dependencies from the `@biomapper-sdk` like this:
 import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
 import {IBridgedBiomapperRead} from "@biomapper-sdk/core/IBridgedBiomapperRead.sol";
 import {BiomapperLogLib} from "@biomapper-sdk/libraries/BiomapperLogLib.sol";
-import {BridgedBiomapperReadLib} from "@biomapper-sdk/libraries/BridgedBiomapperReadLib.sol";
+import {BridgedBiomapperLib} from "@biomapper-sdk/libraries/BridgedBiomapperLib.sol";
 ```
 
 ### With Foundry
@@ -66,7 +66,7 @@ Import the dependencies from `biomapper-sdk` like this:
 import {IBiomapperLogRead} from "biomapper-sdk/core/IBiomapperLogRead.sol";
 import {IBridgedBiomapperRead} from "biomapper-sdk/core/IBridgedBiomapperRead.sol";
 import {BiomapperLogLib} from "biomapper-sdk/libraries/BiomapperLogLib.sol";
-import {BridgedBiomapperReadLib} from "biomapper-sdk/libraries/BridgedBiomapperReadLib.sol";
+import {BridgedBiomapperLib} from "biomapper-sdk/libraries/BridgedBiomapperLib.sol";
 ```
 
 ## Usage

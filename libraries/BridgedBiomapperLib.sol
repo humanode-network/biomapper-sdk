@@ -4,7 +4,7 @@ pragma solidity ^0.8.20;
 import {IBridgedBiomapperRead} from "@biomapper-sdk/core/IBridgedBiomapperRead.sol";
 
 /// @notice A utility library for the `BridgedBiomapper` contract.
-library BridgedBiomapperReadLib {
+library BridgedBiomapperLib {
     /// @notice Determines the uniqueness status of a given address in the last known biomapper generation.
     ///
     /// @notice This call does not guarantee uniqueness across generations,

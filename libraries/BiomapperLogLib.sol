@@ -6,11 +6,17 @@ import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
 /// @notice A utility library for the `BiomapperLog` contract.
 library BiomapperLogLib {
     /// @notice Determines the uniqueness status of a given address in the current biomapper generation.
-    /// The alternative way of using the `Biomapper` contract.
+    ///
+    /// @notice This call does not guarantee uniqueness across generations,
+    /// meaning the same person can pass this check more than once (perform a Sybil-attack):
+    /// with same biometrics but different account after each generation change.
+    /// Ensure you are fully understand the implications of generations and the security guarantees they provide,
+    /// and consider explicitly scoping your uniqueness check by a particular generation.
+    ///
     /// @param biomapperLog The `BiomapperLog` contract.
     /// @param who The address to check for uniqueness.
     /// @return A boolean value indicating whether the address is biomapped (true) or not (false).
-    function isUnique(
+    function isUniqueInLastGeneration(
         IBiomapperLogRead biomapperLog,
         address who
     ) external view returns (bool) {
