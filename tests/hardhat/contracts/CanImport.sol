@@ -3,6 +3,7 @@ pragma solidity ^0.8.24;
 
 import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
 import {BiomapperLogLib} from "@biomapper-sdk/libraries/BiomapperLogLib.sol";
+import {BridgedBiomapperReadLib} from "@biomapper-sdk/libraries/BridgedBiomapperReadLib.sol";
 import {IGenerationChangeEvents} from "@biomapper-sdk/events/IGenerationChangeEvents.sol";
 import {IProveUniquenessEvents} from "@biomapper-sdk/events/IProveUniquenessEvents.sol";
 import {IBridgeBiomappingEvents} from "@biomapper-sdk/events/IBridgeBiomappingEvents.sol";
