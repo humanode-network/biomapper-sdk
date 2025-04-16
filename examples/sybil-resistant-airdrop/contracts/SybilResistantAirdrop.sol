@@ -48,11 +48,15 @@ contract SybilResistantAirdrop {
     event Claimed(address who);
 
     /**
-     * @dev Allows a user to claim their tokens if they haven't already claimed and are unique.
+     * @dev Allows a user to claim their tokens if they haven't already claimed
+     * and are unique in the last generation.
      */
     function claim() public {
         require(!isAlreadyClaimed[msg.sender], "User has already claimed");
-        require(BIOMAPPER_LOG.isUnique(msg.sender), "User is not unique");
+        require(
+            BIOMAPPER_LOG.isUniqueInLastGeneration(msg.sender),
+            "User is not unique"
+        );
 
         ERC20_TOKEN.safeTransferFrom(TOKEN_VAULT, msg.sender, AMOUNT_PER_USER);
 

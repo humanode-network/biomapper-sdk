@@ -35,7 +35,10 @@ contract SybilResistantStaking {
     }
 
     modifier mustBeUnique() {
-        require(BIOMAPPER_LOG.isUnique(msg.sender), "User is not unique");
+        require(
+            BIOMAPPER_LOG.isUniqueInLastGeneration(msg.sender),
+            "User is not unique"
+        );
         _;
     }
 
