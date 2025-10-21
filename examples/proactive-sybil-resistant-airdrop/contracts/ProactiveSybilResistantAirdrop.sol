@@ -19,7 +19,7 @@ contract ProactiveSybilResistantAirdrop {
     uint256 public immutable AMOUNT_PER_USER; // The amount of tokens to send to each user
     IBiomapperLogAddressesPerGenerationEnumerator
         public immutable BIOMAPPER_LOG; // The contract for retrieving unique users list
-    uint256 public immutable MAX_USERS_PER_AIRDROP; // Maximum amount of users to get tokens for each function call
+    uint256 public immutable MAX_USERS_PER_AIRDROP_TICK; // Maximum amount of users to get tokens for each function call
     uint256 public immutable GENERATION_PTR; // Current generation pointer at the moment of contract deployment
 
     address public nextAccountToGetAirdrop; // The cursor for enumertor
@@ -31,14 +31,14 @@ contract ProactiveSybilResistantAirdrop {
      * @param tokenVault The address holding the tokens for the airdrop.
      * @param amountPerUser The amount of tokens to send to each user.
      * @param biomapperLogAddress The address of the contract for retrieving unique users list.
-     * @param maxUsersPerAirdrop The address of the contract for checking uniqueness of users.
+     * @param maxUsersPerAirdropTick The address of the contract for checking uniqueness of users.
      */
     constructor(
         address tokenAddress,
         address tokenVault,
         uint256 amountPerUser,
         address biomapperLogAddress,
-        uint256 maxUsersPerAirdrop
+        uint256 maxUsersPerAirdropTick
     ) {
         ERC20_TOKEN = IERC20(tokenAddress);
         TOKEN_VAULT = tokenVault;
@@ -46,7 +46,7 @@ contract ProactiveSybilResistantAirdrop {
         BIOMAPPER_LOG = IBiomapperLogAddressesPerGenerationEnumerator(
             biomapperLogAddress
         );
-        MAX_USERS_PER_AIRDROP = maxUsersPerAirdrop;
+        MAX_USERS_PER_AIRDROP_TICK = maxUsersPerAirdropTick;
         GENERATION_PTR = IBiomapperLogRead(biomapperLogAddress)
             .generationsHead();
     }
@@ -54,16 +54,17 @@ contract ProactiveSybilResistantAirdrop {
     event AirdropIsCompleted();
 
     /**
-     * @dev Send tokens to biomapped users in the set generation, no more than `MAX_USERS_PER_AIRDROP` users per call.
+     * @dev Send tokens to biomapped users in the set generation, no more than `MAX_USERS_PER_AIRDROP_TICK` users per call.
+     * @return needsMoreTicks The list of biomapped accounts is not exhausted, the airdrop is not completed.
      */
-    function airdrop() public {
+    function airdropTick() public returns (bool needsMoreTicks) {
         require(!airdropCompleted, "Airdrop is completed");
 
         (address nextCursor, address[] memory biomappedAccounts) = BIOMAPPER_LOG
             .listAddressesPerGeneration(
                 GENERATION_PTR,
                 nextAccountToGetAirdrop,
-                MAX_USERS_PER_AIRDROP
+                MAX_USERS_PER_AIRDROP_TICK
             );
 
         for (uint index = 0; index < biomappedAccounts.length; index++) {
@@ -74,11 +75,24 @@ contract ProactiveSybilResistantAirdrop {
             );
         }
 
+        nextAccountToGetAirdrop = nextCursor;
+
         if (nextCursor == address(0)) {
             airdropCompleted = true;
             emit AirdropIsCompleted();
+            return false;
         }
 
-        nextAccountToGetAirdrop = nextCursor;
+        return true;
+    }
+
+    /**
+     * @dev Send tokens to all biomapped users in the set generation.
+     * This function may fail due to excessive gas usage, call `airdropTick` in multiple transactions instead.
+     */
+    function airdrop() external {
+        require(!airdropCompleted, "Airdrop is completed");
+
+        while (airdropTick()) {}
     }
 }
