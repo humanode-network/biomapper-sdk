@@ -15,14 +15,15 @@ Find the up-to-date contract addresses [here][contract-addresses].
 
 ## Implementation Table
 
-| Contract           | Implemented Interfaces                                  |
-| ------------------ | ------------------------------------------------------- |
-| `Biomapper`        | [`IGenerationChangeEvents`], [`IProveUniquenessEvents`] |
-| `BiomapperLog`     | [`IBiomapperLogRead`]                                   |
-| `BridgedBiomapper` | [`IBridgedBiomapperRead`], [`IBridgeBiomappingEvents`]  |
+| Contract           | Implemented Interfaces                                                   |
+| ------------------ | ------------------------------------------------------------------------ |
+| `Biomapper`        | [`IGenerationChangeEvents`], [`IProveUniquenessEvents`]                  |
+| `BiomapperLog`     | [`IBiomapperLogRead`], [`IBiomapperLogAddressesPerGenerationEnumerator`] |
+| `BridgedBiomapper` | [`IBridgedBiomapperRead`], [`IBridgeBiomappingEvents`]                   |
 
 [`IBiomapperLogRead`]: core/IBiomapperLogRead.sol/interface.IBiomapperLogRead.html
 [`IBridgedBiomapperRead`]: core/IBridgedBiomapperRead.sol/interface.IBridgedBiomapperRead.html
+[`IBiomapperLogAddressesPerGenerationEnumerator`]: core/IBiomapperLogAddressesPerGenerationEnumerator.sol/interface.IBiomapperLogAddressesPerGenerationEnumerator.html
 [`IGenerationChangeEvents`]: events/IGenerationChangeEvents.sol/interface.IGenerationChangeEvents.html
 [`IProveUniquenessEvents`]: events/IProveUniquenessEvents.sol/interface.IProveUniquenessEvents.html
 [`IBridgeBiomappingEvents`]: events/IBridgeBiomappingEvents.sol/interface.IBridgeBiomappingEvents.html
@@ -48,6 +49,7 @@ Import the dependencies from the `@biomapper-sdk` like this:
 ```solidity
 import {IBiomapperLogRead} from "@biomapper-sdk/core/IBiomapperLogRead.sol";
 import {IBridgedBiomapperRead} from "@biomapper-sdk/core/IBridgedBiomapperRead.sol";
+import {IBiomapperLogAddressesPerGenerationEnumerator} from "@biomapper-sdk/core/IBiomapperLogAddressesPerGenerationEnumerator.sol";
 import {BiomapperLogLib} from "@biomapper-sdk/libraries/BiomapperLogLib.sol";
 import {BridgedBiomapperLib} from "@biomapper-sdk/libraries/BridgedBiomapperLib.sol";
 ```
@@ -65,6 +67,7 @@ Import the dependencies from `biomapper-sdk` like this:
 ```solidity
 import {IBiomapperLogRead} from "biomapper-sdk/core/IBiomapperLogRead.sol";
 import {IBridgedBiomapperRead} from "biomapper-sdk/core/IBridgedBiomapperRead.sol";
+import {IBiomapperLogAddressesPerGenerationEnumerator} from "biomapper-sdk/core/IBiomapperLogAddressesPerGenerationEnumerator.sol";
 import {BiomapperLogLib} from "biomapper-sdk/libraries/BiomapperLogLib.sol";
 import {BridgedBiomapperLib} from "biomapper-sdk/libraries/BridgedBiomapperLib.sol";
 ```
